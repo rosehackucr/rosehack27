@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --color-rosehack-cream: #f9f9f4;
+  --color-rosehack-yellow: #fff79a;
+  --color-rosehack-lightgreen: #a7dba9;
+  --color-rosehack-darkgreen: #679573;
+  --color-rosehack-purple: #ae94be;
+  --color-rosehack-pink: #ffb6c0;
+}
+
+@theme inline {
+  --font-poppins: var(--next-font-poppins), sans-serif;
+  --font-cormorant: var(--next-font-cormorant), serif;
+}
