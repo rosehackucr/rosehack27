@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="bg-rosehack-darkgreen text-rosehack-cream sticky top-0 z-50">
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-3 text-lg font-bold">
-          <Image src="/logo.png" alt="RoseHack logo" width={36} height={36} />
+          <Image src="/logo.webp" alt="RoseHack logo" width={36} height={36} />
           RoseHack &rsquo;27
         </Link>
 
