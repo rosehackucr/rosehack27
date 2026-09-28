@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Cormorant_Garamond, Poppins } from "next/font/google";
 import { ReactQueryClientProvider } from "@/utils/react-query";
+import Navbar from "@/components/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,7 +30,10 @@ export default function RootLayout({ children }: LayoutProps) {
       <body
         className={`${poppins.variable} ${cormorant.variable} bg-rosehack-cream font-poppins text-rosehack-darkgreen`}
       >
-        <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
+        <ReactQueryClientProvider>
+          <Navbar />
+          {children}
+        </ReactQueryClientProvider>
       </body>
     </html>
   );
