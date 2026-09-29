@@ -1,5 +1,7 @@
 import background from "@/public/gingham-panel1.png";
 import myImage from "@/public/paper-card-md 1.png";
+import myImage2 from "@/public/paper-card-sm 1.png";
+
 
 const About = () => {
   return (
@@ -11,16 +13,16 @@ const About = () => {
         className="fixed inset-0 w-full h-full object-cover -z-10"
       />
 
+      <div className="flex flex-col md:flex-row gap-8 items-start">
+
       <div className="relative w-full max-w-2xl">
 
-        {/* White paper image */}
         <img
           src={myImage.src}
           alt="Paper"
           className="w-full h-auto"
         />
 
-        {/* Text on top */}
         <div className="absolute inset-0 p-10">
 
           <div className="text-sm font-bold text-green-700">
@@ -50,6 +52,39 @@ const About = () => {
           </div>
 
         </div>
+      </div>
+
+
+      <div className="relative w-full max-w-2xl">
+
+        <img
+          src={myImage2.src}
+          alt="Paper"
+          className="w-full h-auto"
+        />
+
+        <div className="absolute inset-0 p-10">
+
+          <div className="text-sm font-bold text-green-700">
+            AT A GLANCE
+          </div>
+
+          <div className="mt-6 text-4xl font-serif text-purple-400">
+            Most people here have
+            <br />
+            never done this before.
+          </div>
+
+          <div className="mt-6 w-28 border-t-2 border-green-700" />
+
+          <div className="mt-8 text-md text-green-700">
+              Meals, workshops, mentors and a quiet room to sleep in are all
+              included. Come alone — teams form on the day.
+          </div>
+
+        </div>
+      </div>
+
       </div>
     </div>
   );
