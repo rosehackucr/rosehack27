@@ -2,6 +2,13 @@ import background from "@/public/gingham-panel1.png";
 import myImage from "@/public/paper-card-md 1.png";
 import myImage2 from "@/public/paper-card-sm 1.png";
 
+const stats = [
+  { value: "24", label: "hours to build" },
+  { value: "10", label: "tracks to enter" },
+  { value: "$0", label: "to attend" },
+  { value: "All", label: "majors & years" },
+];
+
 
 const About = () => {
   return (
@@ -69,13 +76,21 @@ const About = () => {
             AT A GLANCE
           </div>
 
-          <div className="mt-6 text-4xl font-serif text-purple-400">
-            Most people here have
-            <br />
-            never done this before.
-          </div>
-
-          <div className="mt-6 w-28 border-t-2 border-green-700" />
+          <div className="mt-6 grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex flex-col items-center justify-center border-2 border-green-300 py-6 text-center"
+                >
+                  <div className="text-4xl font-serif text-purple-400">
+                    {stat.value}
+                  </div>
+                  <div className="mt-1 text-sm text-green-700">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
 
           <div className="mt-8 text-md text-green-700">
               Meals, workshops, mentors and a quiet room to sleep in are all
