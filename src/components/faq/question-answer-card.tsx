@@ -6,10 +6,10 @@ type QACard = {
 const QACard = ({ question, answer }: QACard) => {
   return (
     <div>
-      <h3 className="font-poppins text-rosehack-purple text-lg font-bold">
+      <h3 className="text-left font-poppins text-rosehack-purple text-lg font-bold">
         {question}
       </h3>
-      <p className="text-base">{answer}</p>
+      <p className="text-left text-base">{answer}</p>
     </div>
   );
 };
