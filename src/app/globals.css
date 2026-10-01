@@ -7,6 +7,17 @@
   --color-rosehack-darkgreen: #679573;
   --color-rosehack-purple: #ae94be;
   --color-rosehack-pink: #ffb6c0;
+
+  --animate-sway: sway 5s ease-in-out infinite alternate;
+
+  @keyframes sway {
+    from {
+      transform: skewX(-2deg);
+    }
+    to {
+      transform: skewX(2deg);
+    }
+  }
 }
 
 @theme inline {
