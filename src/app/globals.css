@@ -8,14 +8,14 @@
   --color-rosehack-purple: #ae94be;
   --color-rosehack-pink: #ffb6c0;
 
-  --animate-sway: sway 4s ease-in-out infinite alternate;
+  --animate-sway: sway 5s ease-in-out infinite alternate;
 
   @keyframes sway {
     from {
-      transform: rotate(-3deg);
+      transform: skewX(-2deg);
     }
     to {
-      transform: rotate(3deg);
+      transform: skewX(2deg);
     }
   }
 }

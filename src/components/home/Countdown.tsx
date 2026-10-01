@@ -29,9 +29,9 @@ const Countdown = () => {
       {(["days", "hours", "minutes", "seconds"] as const).map((unit, i) => (
         <div
           key={unit}
-          className={`bg-rosehack-cream text-rosehack-darkgreen flex w-28 flex-col items-center py-4 shadow-sm md:w-32 ${i % 2 ? "rotate-1" : "-rotate-1"}`}
+          className={`text-rosehack-darkgreen flex h-28 w-28 flex-col items-center justify-center bg-[url(/paper-card-sm.webp)] bg-[length:100%_100%] md:h-30 md:w-32 ${i % 2 ? "rotate-1" : "-rotate-1"}`}
         >
-          <span className="font-cormorant text-rosehack-purple text-5xl">
+          <span className="font-cormorant text-rosehack-purple text-5xl font-bold">
             {time ? String(time[unit]).padStart(2, "0") : "--"}
           </span>
           <span className="text-xs font-semibold uppercase">{unit}</span>
