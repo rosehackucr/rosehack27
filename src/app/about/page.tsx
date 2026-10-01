@@ -1,6 +1,6 @@
 import background from "@/public/gingham-panel1.png";
-import myImage from "@/public/paper-card-md 1.png";
-import myImage2 from "@/public/paper-card-sm 1.png";
+import Box1 from "@/public/paper-card-md 1.png";
+import Box2 from "@/public/paper-card-sm 1.png";
 
 const stats = [
   { value: "24", label: "hours to build" },
@@ -20,7 +20,7 @@ const About = () => {
 
       <div className="flex flex-col items-start gap-8 md:flex-row">
         <div className="relative w-full max-w-2xl">
-          <img src={myImage.src} alt="Paper" className="h-auto w-full" />
+          <img src={Box1.src} alt="Paper" className="h-auto w-full" />
 
           <div className="absolute inset-0 p-10">
             <div className="text-sm font-bold text-green-700">
@@ -52,7 +52,7 @@ const About = () => {
         </div>
 
         <div className="relative w-full max-w-2xl">
-          <img src={myImage2.src} alt="Paper" className="h-auto w-full" />
+          <img src={Box2.src} alt="Paper" className="h-auto w-full" />
 
           <div className="absolute inset-0 p-10">
             <div className="text-sm font-bold text-green-700">AT A GLANCE</div>
