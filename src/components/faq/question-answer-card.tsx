@@ -1,9 +1,9 @@
 type QACard = {
   question: string;
   answer: string;
-}
+};
 
-const QACard = ({question, answer} : QACard) => {
+const QACard = ({ question, answer }: QACard) => {
   return (
     <div>
       <h3>{question}</h3>
