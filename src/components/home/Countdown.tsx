@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-// TODO: confirm start time with Nam
 const TARGET = new Date("2027-01-30T08:00:00-08:00").getTime();
 
 const getTimeLeft = () => {

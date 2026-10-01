@@ -32,6 +32,9 @@ const Hero = () => {
       ))}
 
       <Image src="/logo.webp" alt="RoseHack logo" width={120} height={120} />
+      <p className="-mt-3 text-xs font-semibold tracking-widest uppercase md:text-sm">
+        Presented by WINC
+      </p>
       <h1 className="text-5xl font-bold md:text-7xl">RoseHack &rsquo;27</h1>
       <p className="max-w-lg text-lg font-light md:text-xl">
         UC Riverside&rsquo;s 24-hour women-centric hackathon — and the largest
@@ -48,7 +51,6 @@ const Hero = () => {
         >
           Apply Now
         </Link>
-        {/* TODO: Discord invite link */}
         <Link
           target="_blank"
           href="https://discord.gg/Md27WDfEZF"
