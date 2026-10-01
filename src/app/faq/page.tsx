@@ -2,13 +2,15 @@ import QACard from "@/components/faq/question-answer-card";
 
 const FAQ = () => {
   return (
-    <div>
-      {/* Overall Container */}
-      <div>
+    <section className="bg-[url('/gingham-panel.webp')] bg-contain bg-center mx-auto max-w-8xl">
+      {/* Overall Container Section */}
+      <section 
+        className= "bg-[url('/faq/paper-card-top.webp')] bg-contain bg-center /mx-auto max-w-5xl text-center"
+      >
         {/* Title Section */}
         <h2>QUESTIONS WE GET A LOT</h2>
         <h1>FAQ</h1>
-      </div>
+      </section>
 
       <div>
         {/* Main Section */}
@@ -43,7 +45,7 @@ const FAQ = () => {
         />
       </div>
 
-      <div>
+      <section className="text-center">
         {/* Footnote Section */}
         <p>
           Still wondering something? Ask us in the{" "}
@@ -63,8 +65,9 @@ const FAQ = () => {
             ucr.rosehack@gmail.com
           </a>
         </p>      
-      </div>
-    </div>
+      </section>
+
+    </section>
   );  
 };
 
