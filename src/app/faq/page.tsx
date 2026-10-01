@@ -42,6 +42,28 @@ const FAQ = () => {
           answer="[Fill In Later]"
         />
       </div>
+
+      <div>
+        {/* Footnote Section */}
+        <p>
+          Still wondering something? Ask us in the{" "}
+          <a
+            href="https://discord.gg/Md27WDfEZF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:opacity-80"
+          >
+            Discord
+          </a>{" "}
+          or email{" "}
+          <a
+            href="mailto:ucr.rosehack@gmail.com"
+            className="underline hover:opacity-80"
+          >
+            ucr.rosehack@gmail.com
+          </a>
+        </p>      
+      </div>
     </div>
   );  
 };
