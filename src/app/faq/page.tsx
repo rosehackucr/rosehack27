@@ -23,7 +23,7 @@ const FAQ = () => {
         <div className="relative mx-auto max-w-3xl">
           {/* Main Section */}
           <section className="text-left">
-            <div className=" m-3 flex-col items-center text-left bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-10 pt-10 pb-30">
+            <div className="m-3 flex-col items-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-10 pt-10 pb-30 text-left">
               <QACard
                 question="Do I need to know how to code?"
                 answer="No! Every level is welcome, including if you're just starting out. We have resources, workshops and mentors to help you get going."
@@ -58,7 +58,6 @@ const FAQ = () => {
                 question="Do I have to stay the whole 24 hours?"
                 answer="No! Stay as long as you like. There's a quiet room if you want to sleep on site, and you're welcome to go home and come back Sunday."
               />
-              
             </div>
           </section>
         </div>
