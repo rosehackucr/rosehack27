@@ -9,12 +9,12 @@ const FAQ = () => {
         <div className="relative mx-auto max-w-3xl">
           {/* Title Section */}
           <section className="text-center">
-            <div className="m-8 inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-30 py-8">
-              <h2 className="text-poppins font-bold">
+            <div className="relative z-20 mx-auto inline-flex min-w-[290px] flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-[length:100%_100%] bg-center bg-no-repeat px-12 py-8 sm:min-w-[360px] sm:px-16">
+              <h2 className="font-poppins text-[10px] font-bold text-green-700">
                 QUESTIONS WE GET A LOT
               </h2>
 
-              <h1 className="text-rosehack-purple font-cormorant text-7xl font-bold">
+              <h1 className="text-rosehack-purple font-cormorant mt-2 text-5xl font-bold">
                 FAQ
               </h1>
             </div>
