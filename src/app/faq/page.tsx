@@ -23,44 +23,44 @@ const FAQ = () => {
       </section>
 
       <section className="mx-auto pt-0 text-left">
-        <div className="relative mx-auto max-w-3xl">
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
           {/* Main Section */}
           <section className="text-left">
-            <div className="m-3 flex flex-col bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-10 pt-10 pb-30 text-left">
+            <div className="mx-auto flex max-w-2xl flex-col bg-[url('/faq/paper-card-top.webp')] bg-[length:100%_100%] bg-center bg-no-repeat px-8 pt-10 pb-16 text-left sm:px-12">
               <QACard
                 question="Do I need to know how to code?"
                 answer="No! Every level is welcome, including if you're just starting out. We have resources, workshops and mentors to help you get going."
               />
 
-              <hr />
+              <hr className="my-3 border-green-400/60" />
 
               <QACard
                 question="Do I need a team beforehand?"
                 answer="No! Find teammates in our Discord or in person during the hackathon -- or build and demo solo if you'd rather."
               />
 
-              <hr />
+              <hr className="my-3 border-green-400/60" />
 
               <QACard
-                question="Do I need project idea beforehand?"
+                question="Do I need a project idea beforehand?"
                 answer="No! Brainstorm ahead if you like, but all work and coding happens during the hackathon. You'll have the whole weekend."
               />
 
-              <hr />
+              <hr className="my-3 border-green-400/60" />
 
               <QACard
-                question="Is it only for CS Majors"
+                question="Is it only for CS majors?"
                 answer="No! All majors and all years are welcome."
               />
 
-              <hr />
+              <hr className="my-3 border-green-400/60" />
 
               <QACard
                 question="Does it cost anything?"
                 answer="No! Just register and watch for your confirmation email."
               />
 
-              <hr />
+              <hr className="my-3 border-green-400/60" />
 
               <QACard
                 question="Do I have to stay the whole 24 hours?"
