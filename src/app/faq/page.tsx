@@ -9,7 +9,7 @@ const FAQ = () => {
         <div className="relative mx-auto max-w-3xl">
           {/* Title Section */}
           <section className="text-center">
-            <div className="m-8 inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-36 py-8 drop-shadow-[0_8px_7px_rgba(80,60,60,0.22)]">
+            <div className="m-8 mb-0 inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-36 py-8 drop-shadow-[0_8px_7px_rgba(80,60,60,0.22)]">
               <h2 className="font-poppins text-rosehack-darkgreen font-bold">
                 QUESTIONS WE GET A LOT
               </h2>
@@ -26,7 +26,7 @@ const FAQ = () => {
         <div className="relative mx-auto max-w-3xl">
           {/* Main Section */}
           <section className="text-left">
-            <div className="m-3 flex-col items-center bg-[url('/faq/paper-card-main.webp')] bg-[length:100%_100%] bg-center bg-no-repeat px-10 pt-10 pb-30 text-left drop-shadow-[0_8px_8px_rgba(80,60,60,0.18)]">
+            <div className="m-3 flex-col items-center bg-[url('/faq/paper-card-main.webp')] bg-[length:100%_100%] bg-center bg-no-repeat px-10 pt-20 pb-20 text-left drop-shadow-[0_8px_8px_rgba(80,60,60,0.18)]">
               <QACard
                 question="Do I need to know how to code?"
                 answer="No! Every level is welcome, including if you're just starting out. We have resources, workshops and mentors to help you get going."
@@ -71,7 +71,7 @@ const FAQ = () => {
         </div>
       </section>
 
-      <section className="mx-auto -mt-3 justify-center pb-5 text-center">
+      <section className="relative z-10 mx-auto -mt-12 justify-center pb-5 text-center">
         <div className="relative mx-auto max-w-lg">
           {/* Footnote Section */}
           <section className="text-center">
