@@ -1,3 +1,4 @@
+import Image from "next/image";
 import QACard from "@/components/faq/question-answer-card";
 
 const FAQ = () => {
@@ -23,7 +24,27 @@ const FAQ = () => {
       </section>
 
       <section className="mx-auto justify-center pt-0 text-left">
-        <div className="relative mx-auto max-w-3xl">
+        <div className="relative mx-auto max-w-3xl overflow-visible">
+          {/* Yellow Ribbon */}
+          <Image
+            src="/faq/yellow.webp"
+            alt=""
+            width={140}
+            height={60}
+            draggable={false}
+            className="pointer-events-none absolute -top-5 -left-8 z-20 w-36 select-none"
+          />
+
+          {/* Pink Ribbon */}
+          <Image
+            src="/faq/pink.webp"
+            alt=""
+            width={140}
+            height={60}
+            draggable={false}
+            className="pointer-events-none absolute -right-8 -bottom-5 z-20 w-36 select-none"
+          />
+
           {/* Main Section */}
           <section className="text-left">
             <div className="m-3 flex-col items-center bg-[url('/faq/paper-card-main.webp')] bg-[length:100%_100%] bg-center bg-no-repeat px-10 pt-20 pb-20 text-left drop-shadow-[0_8px_8px_rgba(80,60,60,0.18)]">
