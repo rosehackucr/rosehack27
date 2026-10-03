@@ -2,19 +2,19 @@ import QACard from "@/components/faq/question-answer-card";
 
 const FAQ = () => {
   return (
-    <section className="min-h-screen bg-[url('/gingham-panel.webp')] bg-repeat bg-[length:80px_80px]">
+    <section className="mx-auto w-full justify-center bg-[url('/faq/gingham.webp')] bg-[length:100%_auto] bg-top bg-repeat-y">
       {/* Overall Container Section */}
 
-      <section className="mx-auto pt-5 pb-2 text-center">
+      <section className="mx-auto justify-center pt-5 pb-2 text-center">
         <div className="relative mx-auto max-w-3xl">
           {/* Title Section */}
           <section className="text-center">
-            <div className="relative z-20 mx-auto inline-flex min-w-[290px] flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-[length:100%_100%] bg-center bg-no-repeat px-12 py-8 sm:min-w-[360px] sm:px-16">
-              <h2 className="font-poppins text-[10px] font-bold text-green-700">
+            <div className="m-8 inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-36 py-8 drop-shadow-[0_8px_7px_rgba(80,60,60,0.22)]">
+              <h2 className="font-poppins text-rosehack-darkgreen font-bold">
                 QUESTIONS WE GET A LOT
               </h2>
 
-              <h1 className="text-rosehack-purple font-cormorant mt-2 text-5xl font-bold">
+              <h1 className="text-rosehack-purple font-cormorant text-7xl font-bold">
                 FAQ
               </h1>
             </div>
@@ -22,45 +22,45 @@ const FAQ = () => {
         </div>
       </section>
 
-      <section className="mx-auto pt-0 text-left">
-        <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
+      <section className="mx-auto justify-center pt-0 text-left">
+        <div className="relative mx-auto max-w-3xl">
           {/* Main Section */}
           <section className="text-left">
-            <div className="mx-auto flex max-w-2xl flex-col bg-[url('/faq/paper-card-top.webp')] bg-[length:100%_100%] bg-center bg-no-repeat px-8 pt-10 pb-16 text-left sm:px-12">
+            <div className="m-3 flex-col items-center bg-[url('/faq/paper-card-main.webp')] bg-[length:100%_100%] bg-center bg-no-repeat px-10 pt-10 pb-30 text-left drop-shadow-[0_8px_8px_rgba(80,60,60,0.18)]">
               <QACard
                 question="Do I need to know how to code?"
                 answer="No! Every level is welcome, including if you're just starting out. We have resources, workshops and mentors to help you get going."
               />
 
-              <hr className="my-3 border-green-400/60" />
+              <hr className="my-4 border-rosehack-lightgreen" />
 
               <QACard
                 question="Do I need a team beforehand?"
                 answer="No! Find teammates in our Discord or in person during the hackathon -- or build and demo solo if you'd rather."
               />
 
-              <hr className="my-3 border-green-400/60" />
+              <hr className="my-4 border-rosehack-lightgreen" />
 
               <QACard
                 question="Do I need a project idea beforehand?"
                 answer="No! Brainstorm ahead if you like, but all work and coding happens during the hackathon. You'll have the whole weekend."
               />
 
-              <hr className="my-3 border-green-400/60" />
+              <hr className="my-4 border-rosehack-lightgreen" />
 
               <QACard
                 question="Is it only for CS majors?"
                 answer="No! All majors and all years are welcome."
               />
 
-              <hr className="my-3 border-green-400/60" />
+              <hr className="my-4 border-rosehack-lightgreen" />
 
               <QACard
                 question="Does it cost anything?"
                 answer="No! Just register and watch for your confirmation email."
               />
 
-              <hr className="my-3 border-green-400/60" />
+              <hr className="my-4 border-rosehack-lightgreen" />
 
               <QACard
                 question="Do I have to stay the whole 24 hours?"
@@ -71,11 +71,11 @@ const FAQ = () => {
         </div>
       </section>
 
-      <section className="mx-auto p-5 text-center">
+      <section className="mx-auto -mt-3 justify-center pb-5 text-center">
         <div className="relative mx-auto max-w-lg">
           {/* Footnote Section */}
           <section className="text-center">
-            <div className="mt-1 inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-10 py-8">
+            <div className="inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-10 py-8 drop-shadow-[0_8px_7px_rgba(80,60,60,0.20)]">
               <p className="text-base">
                 Still wondering something? Ask us in the{" "}
                 <a

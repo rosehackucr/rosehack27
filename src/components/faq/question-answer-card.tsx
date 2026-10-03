@@ -9,7 +9,10 @@ const QACard = ({ question, answer }: QACard) => {
       <h3 className="font-poppins text-rosehack-purple text-left text-lg font-bold">
         {question}
       </h3>
-      <p className="text-left text-base">{answer}</p>
+
+      <p className="font-poppins text-rosehack-darkgreen text-left text-base">
+        {answer}
+      </p>
     </div>
   );
 };
