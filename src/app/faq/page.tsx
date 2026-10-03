@@ -32,35 +32,35 @@ const FAQ = () => {
                 answer="No! Every level is welcome, including if you're just starting out. We have resources, workshops and mentors to help you get going."
               />
 
-              <hr className="my-4 border-rosehack-lightgreen" />
+              <hr className="border-rosehack-lightgreen my-4" />
 
               <QACard
                 question="Do I need a team beforehand?"
                 answer="No! Find teammates in our Discord or in person during the hackathon -- or build and demo solo if you'd rather."
               />
 
-              <hr className="my-4 border-rosehack-lightgreen" />
+              <hr className="border-rosehack-lightgreen my-4" />
 
               <QACard
                 question="Do I need a project idea beforehand?"
                 answer="No! Brainstorm ahead if you like, but all work and coding happens during the hackathon. You'll have the whole weekend."
               />
 
-              <hr className="my-4 border-rosehack-lightgreen" />
+              <hr className="border-rosehack-lightgreen my-4" />
 
               <QACard
                 question="Is it only for CS majors?"
                 answer="No! All majors and all years are welcome."
               />
 
-              <hr className="my-4 border-rosehack-lightgreen" />
+              <hr className="border-rosehack-lightgreen my-4" />
 
               <QACard
                 question="Does it cost anything?"
                 answer="No! Just register and watch for your confirmation email."
               />
 
-              <hr className="my-4 border-rosehack-lightgreen" />
+              <hr className="border-rosehack-lightgreen my-4" />
 
               <QACard
                 question="Do I have to stay the whole 24 hours?"
