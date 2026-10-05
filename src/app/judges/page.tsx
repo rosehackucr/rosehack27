@@ -99,7 +99,7 @@ const Judges = () => {
       {/* TODO: link to the judge interest form once it exists */}
       <button
         type="button"
-        className="border-rosehack-darkgreen cursor-pointer hover:bg-rosehack-darkgreen/10 relative z-20 mt-4 rounded-full border-2 px-16 py-4 font-semibold uppercase"
+        className="border-rosehack-darkgreen hover:bg-rosehack-darkgreen/10 relative z-20 mt-4 cursor-pointer rounded-full border-2 px-16 py-4 font-semibold uppercase"
       >
         Judge at RoseHack &rsquo;27
       </button>
