@@ -1,5 +1,7 @@
-const Sponsors = () => {
-  return <div>Sponsors</div>;
+import SponsorsSection from "@/components/sponsors/SponsorsSection";
+
+const SponsorsPage = () => {
+  return <SponsorsSection />;
 };
 
-export default Sponsors;
+export default SponsorsPage;
