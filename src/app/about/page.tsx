@@ -11,7 +11,7 @@ const stats = [
 
 const About = () => {
   return (
-    <div className="p-4 font-poppins sm:p-6 md:p-8">
+    <div className="font-poppins p-4 sm:p-6 md:p-8">
       <img
         src={background.src}
         alt="Gingham Panel"
@@ -28,18 +28,18 @@ const About = () => {
           />
 
           <div className="relative p-6 sm:p-8 md:p-10">
-            <div className="text-xs font-bold text-rosehack-darkgreen sm:text-sm">
+            <div className="text-rosehack-darkgreen text-xs font-bold sm:text-sm">
               WHAT IS ROSEHACK?
             </div>
 
-            <div className="mt-4 font-cormorant text-2xl leading-tight text-rosehack-purple sm:mt-6 sm:text-3xl md:text-4xl">
+            <div className="font-cormorant text-rosehack-purple mt-4 text-2xl leading-tight sm:mt-6 sm:text-3xl md:text-4xl">
               Most people here have
               <br className="hidden sm:block" /> never done this before.
             </div>
 
-            <div className="mt-4 w-20 border-t-2 border-rosehack-darkgreen sm:mt-6 sm:w-28" />
+            <div className="border-rosehack-darkgreen mt-4 w-20 border-t-2 sm:mt-6 sm:w-28" />
 
-            <div className="mt-6 text-sm text-rosehack-darkgreen sm:text-base md:mt-8">
+            <div className="text-rosehack-darkgreen mt-6 text-sm sm:text-base md:mt-8">
               RoseHack is UC Riverside's 24-hour women-centric hackathon, hosted
               by Women in Computing and founded by leaders from ACM-W and the
               Society of Women Engineers. Over one weekend you'll join a team,
@@ -47,12 +47,10 @@ const About = () => {
               Sunday afternoon.
             </div>
 
-            <div className="mt-4 text-sm text-rosehack-darkgreen sm:mt-6 sm:text-base">
+            <div className="text-rosehack-darkgreen mt-4 text-sm sm:mt-6 sm:text-base">
               You don't need a team. You don't need a project idea. You don't
               need to know how to code. Most people walk in with none of that -{" "}
-              
               that's exactly who we build it for.
-              
             </div>
           </div>
         </div>
@@ -66,7 +64,7 @@ const About = () => {
           />
 
           <div className="relative p-6 sm:p-8 md:p-10">
-            <div className="text-xs font-bold text-rosehack-darkgreen sm:text-sm">
+            <div className="text-rosehack-darkgreen text-xs font-bold sm:text-sm">
               AT A GLANCE
             </div>
 
@@ -74,19 +72,19 @@ const About = () => {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex flex-col items-center justify-center border-2 border-rosehack-lightgreen bg-rosehack-cream/70 px-2 py-4 text-center sm:py-6"
+                  className="border-rosehack-lightgreen bg-rosehack-cream/70 flex flex-col items-center justify-center border-2 px-2 py-4 text-center sm:py-6"
                 >
-                  <div className="font-cormorant text-3xl text-rosehack-purple sm:text-4xl">
+                  <div className="font-cormorant text-rosehack-purple text-3xl sm:text-4xl">
                     {stat.value}
                   </div>
-                  <div className="mt-1 text-xs text-rosehack-darkgreen sm:text-sm">
+                  <div className="text-rosehack-darkgreen mt-1 text-xs sm:text-sm">
                     {stat.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 text-sm text-rosehack-darkgreen sm:text-base md:mt-8">
+            <div className="text-rosehack-darkgreen mt-6 text-sm sm:text-base md:mt-8">
               Meals, workshops, mentors and a quiet room to sleep in are all
               included. Come alone — teams form on the day.
             </div>
