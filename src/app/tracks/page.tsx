@@ -1,5 +1,7 @@
-const Tracks = () => {
-  return <div>Tracks</div>;
+import TracksSection from "@/components/tracks/TracksSection";
+
+const TracksPage = () => {
+  return <TracksSection />;
 };
 
-export default Tracks;
+export default TracksPage;
