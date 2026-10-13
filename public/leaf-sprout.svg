@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img"
+     aria-label="" focusable="false">
+  <!-- Small sprout for the Apply button hover. Set transform-origin to the stem
+       base (bottom-left) so it unfurls from where it is attached rather than
+       growing out of its own middle. -->
+  <path fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"
+        d="M10 56 C20 51 26 45 30 38"/>
+  <path fill="currentColor"
+        d="M30 38 C34 12 54 3 58 4 C62 5 57 28 44 39 C37 45 31 44 30 38 Z"/>
+  <path fill="none" stroke="currentColor" stroke-opacity=".3" stroke-width="3"
+        stroke-linecap="round" d="M36 35 C43 25 50 17 55 12"/>
+</svg>

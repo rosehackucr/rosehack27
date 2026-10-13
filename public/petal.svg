@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 130" role="img"
+     aria-label="" focusable="false">
+  <!-- Falling-petal shape: broad and rounded at the top, tapering to the point
+       where it was attached. Deliberately plain, because on screen these render
+       between 10 and 24px, where more detail is invisible and only costs paint
+       time. The two sides are not mirrored, which reads as a slight curl.
+       Colour comes from `currentColor`, so one file covers pink petals, cream
+       ones, or a different tint per layer. -->
+  <path fill="currentColor"
+        d="M50 127 C21 105 4 74 10 46 C15 19 34 3 53 3
+           C71 3 89 20 92 47 C95 77 79 107 50 127 Z"/>
+  <path fill="none" stroke="currentColor" stroke-opacity=".26" stroke-width="3"
+        stroke-linecap="round" d="M50 120 C47 88 47 48 53 17"/>
+</svg>

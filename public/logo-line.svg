@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" fill="none"
+     stroke="currentColor" stroke-width="13" stroke-linecap="round"
+     stroke-linejoin="round" role="img" aria-label="RoseHack">
+
+  <!-- Line-art companion to logo.webp, for the draw-in animation.
+       Every stroked path carries pathLength="1", so a single CSS rule can draw
+       all of them regardless of their real geometry. The groups are the stages:
+       circuit, stem, leaf, bud, ring. Colour comes from `currentColor`, so set
+       it with the `color` property rather than editing this file.
+       Filled nodes sit in their own group: a dot has no length to draw, so
+       fade or scale those instead of stroking them. -->
+
+  <g class="rose-circuit">
+    <path pathLength="1" d="M348 548 L286 548 L286 596"/>
+    <path pathLength="1" d="M286 596 L232 596 L232 626"/>
+    <path pathLength="1" d="M372 528 L438 528 L438 572"/>
+    <path pathLength="1" d="M438 572 L492 572"/>
+    <path pathLength="1" d="M348 600 L316 600 L316 642"/>
+    <path pathLength="1" d="M372 592 L398 592 L398 624"/>
+    <path pathLength="1" d="M232 626 L198 626"/>
+    <path pathLength="1" d="M262 644 L262 584"/>
+    <path pathLength="1" d="M466 638 L466 596"/>
+    <path pathLength="1" d="M510 592 L510 548"/>
+    <path pathLength="1" d="M212 612 L212 566"/>
+    <path pathLength="1" d="M348 636 L334 636"/>
+  </g>
+
+  <g class="rose-stem">
+    <path pathLength="1" d="M348 296 L348 656"/>
+    <path pathLength="1" d="M372 296 L372 656"/>
+    <path pathLength="1" d="M374 376 L406 396 L374 416 Z"/>
+    <path pathLength="1" d="M346 496 L314 516 L346 536 Z"/>
+  </g>
+
+  <g class="rose-leaf">
+    <path pathLength="1" d="M203 430 C215 384 262 362 310 370
+                             C300 414 252 440 203 430 Z"/>
+    <path pathLength="1" d="M228 420 L294 382"/>
+    <path pathLength="1" d="M241 428 L299 395"/>
+    <path pathLength="1" d="M398 512 C410 466 457 444 505 452
+                             C495 496 447 522 398 512 Z"/>
+    <path pathLength="1" d="M423 502 L489 464"/>
+    <path pathLength="1" d="M436 510 L494 477"/>
+  </g>
+
+  <g class="rose-bud">
+    <path pathLength="1" d="M266 120 L302 170 L332 152 C336 108 384 108 388 152
+                             L416 170 L454 120 L454 236
+                             C454 276 416 298 360 298
+                             C304 298 266 276 266 236 Z"/>
+    <path pathLength="1" d="M278 154 L442 200"/>
+  </g>
+
+  <g class="rose-ring">
+    <path pathLength="1" d="M360 64 A300 300 0 1 1 359.6 64"/>
+    <path pathLength="1" d="M100 250 A288 288 0 0 1 182 112"/>
+    <path pathLength="1" d="M620 250 A288 288 0 0 0 538 112"/>
+    <path pathLength="1" d="M80 222 L148 222"/>
+    <path pathLength="1" d="M640 222 L572 222"/>
+  </g>
+
+  <g class="rose-nodes" fill="currentColor" stroke="none">
+    <circle cx="182" cy="112" r="11"/>
+    <circle cx="538" cy="112" r="11"/>
+    <circle cx="156" cy="222" r="11"/>
+    <circle cx="564" cy="222" r="11"/>
+    <circle cx="198" cy="626" r="11"/>
+    <circle cx="316" cy="642" r="11"/>
+    <circle cx="398" cy="624" r="11"/>
+    <circle cx="492" cy="572" r="11"/>
+    <circle cx="262" cy="584" r="11"/>
+    <circle cx="466" cy="596" r="11"/>
+    <circle cx="510" cy="548" r="11"/>
+    <circle cx="212" cy="566" r="11"/>
+    <circle cx="334" cy="636" r="11"/>
+  </g>
+</svg>
