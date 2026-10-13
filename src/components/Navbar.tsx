@@ -15,7 +15,10 @@ const links: NavLink[] = [
   {
     name: "About",
     href: "/about",
-    children: [{ name: "Judges", href: "/judges" }],
+    children: [
+      { name: "Judges", href: "/judges" },
+      { name: "Speakers", href: "/speakers" },
+    ],
   },
   { name: "Tracks", href: "/tracks" },
   { name: "Sponsors", href: "/sponsors" },
@@ -81,6 +84,7 @@ const Navbar = () => {
           className="md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <X /> : <Menu />}
         </button>
