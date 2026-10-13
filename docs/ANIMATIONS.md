@@ -1,51 +1,59 @@
-# RoseHack '27 — website animation guide
+## The assets — what's in the repo and where
 
-For Charles, Yuval, Benito and Quinton.
+These are already committed on `main`. Exact paths, so nobody has to go looking.
 
-This is a brief, not a patch. It tells you what each animation should feel like,
-which technique gets you there, and the specific things in _this_ repo that will
-trip you up — then leaves the implementation to you. Where the repo already
-contains a working example of a technique, I point at it instead of restating
-it, because the version in our codebase is more useful to you than anything I
-could paste here.
+| Path                           | Size   | Used by                       |
+| ------------------------------ | ------ | ----------------------------- |
+| `public/logo-line.svg`         | 3.3 KB | §2 — the logo draw-in         |
+| `public/petal.svg`             | 843 B  | §4 — falling petals           |
+| `public/leaf-sprout.svg`       | 686 B  | §5 — Apply button hover       |
+| `public/grass-dense-1440.webp` | 113 KB | §3 — the meadow's third layer |
+| `docs/ANIMATIONS.md`           | —      | this document                 |
 
-Checked against `main` at `a588cd7`: Next 15.5.27, React 19, Tailwind 4.0.17,
-static export to GitHub Pages. No new dependency is needed for any of this.
+Already in `public/` from before, and used by §3:
+`grass-band-1440.webp` (back layer, currently swaying) and
+`grass-meadow-border-1440.webp` (front layer, static).
 
----
+`make_grass.py` is deliberately **not** in the repo — it needs Playwright and
+Pillow, which aren't project dependencies. It lives with the design files; ask
+for it if you want to regenerate the grass at a different density.
 
-## The assets
+### `public/logo-line.svg`
 
-Four files ship with this guide. Everything below assumes they're in `public/`.
+The one that needs explaining. `public/logo.webp` is a 267×266 raster image, so
+it cannot be drawn, morphed or animated in parts — only moved and faded as a
+whole. The line-art version exists so the draw-in is possible at all.
 
-| File                    | Goes to                                 | Used by                             |
-| ----------------------- | --------------------------------------- | ----------------------------------- |
-| `logo-line.svg`         | inline in JSX, **not** `public/`        | The logo draw-in                    |
-| `petal.svg`             | `public/petal.svg`                      | Falling petals                      |
-| `leaf-sprout.svg`       | `public/leaf-sprout.svg`                | Apply button hover                  |
-| `grass-dense-1440.webp` | `public/grass-dense-1440.webp`          | The meadow's third layer            |
-| `make_grass.py`         | nowhere — keep it with the design files | Regenerating the grass denser later |
-
-`logo-line.svg` is the one that needs explaining. `public/logo.webp` is a 267×266
-raster image, so it cannot be drawn, morphed or animated in parts — only moved
-and faded as a whole. The line-art version exists so the draw-in is possible at
-all. It is organised for exactly that: five groups (`rose-circuit`, `rose-stem`,
-`rose-leaf`, `rose-bud`, `rose-ring`) that are the animation's stages, every
-stroked path carrying `pathLength="1"`, and the filled dots separated into
-`rose-nodes` because a dot has no length to draw.
+It is organised for exactly that. Five groups, which are the animation's stages
+in order: `.rose-circuit`, `.rose-stem`, `.rose-leaf`, `.rose-bud`,
+`.rose-ring`. Every stroked path inside them carries `pathLength="1"`. The
+filled dots are separated into `.rose-nodes`, because a dot has no length to
+draw — fade or scale those instead.
 
 It is stroked in `currentColor`, so set its colour with the `color` property
-rather than editing the file. Two consequences worth knowing: it has to be
-**inlined into your JSX** — `next/image` renders it as an opaque image and you
-can't reach the paths — and the `images` CI check ignores `.svg` entirely, so it
-passes through untouched.
+rather than editing the file. Two consequences: it has to be **inlined into your
+JSX**, because `next/image` renders it as an opaque image and you can't reach
+the paths — it sits in `public/` as the version-controlled source, not as
+something you load by URL. And the `images` CI check ignores `.svg` entirely, so
+it passes through untouched.
 
-`grass-dense-1440.webp` is 113KB, noticeably heavier than the grass already in
-`public/`. The fine blade detail plus transparency just doesn't compress well.
-It's only visible at the very bottom of the page, so lazy-load it rather than
-trying to shrink it further. `make_grass.py` regenerates it — the three band
-definitions near the top control count, height and opacity, so when we step the
-meadow up for January you change numbers rather than redraw anything.
+### `public/grass-dense-1440.webp`
+
+1440×240, and 113 KB — noticeably heavier than the grass already in `public/`.
+The fine blade detail plus transparency just doesn't compress well. It's only
+visible at the very bottom of the page, so lazy-load it rather than trying to
+shrink it further.
+
+## The files you'll be editing
+
+| Animation         | Files                                                                                                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| §0 reduced motion | `src/app/globals.css`, `eslint.config.mjs`                                                                                                                                                  |
+| §1 scroll reveal  | new component, then `src/app/about/page.tsx`, `src/app/faq/page.tsx`, `src/app/judges/page.tsx`, `src/app/sponsors/page.tsx`, `src/app/page.tsx`, `src/components/tracks/TracksSection.tsx` |
+| §2 logo draw-in   | `src/components/home/Hero.tsx`, `src/app/globals.css`                                                                                                                                       |
+| §3 meadow         | `src/app/layout.tsx`, plus removing the grass from `src/components/home/Hero.tsx`, `src/app/judges/page.tsx`, `src/app/sponsors/page.tsx` and `src/components/home/Theme.tsx`               |
+| §4 petals         | `src/app/layout.tsx`, `src/app/globals.css`, `src/components/Navbar.tsx` (z-index)                                                                                                          |
+| §5 small ones     | `src/components/home/Countdown.tsx`, `src/components/faq/question-answer-card.tsx`, `src/components/Navbar.tsx`, `src/app/not-found.tsx`                                                    |
 
 ---
 
@@ -71,11 +79,25 @@ JavaScript needs its own check — a scroll listener that never runs beats one
 that runs and does nothing. `window.matchMedia` read once at mount is enough for
 everything here.
 
+**Reach for:** `@media (prefers-reduced-motion: reduce)` ·
+`animation-duration`, `animation-iteration-count`, `transition-duration`, each
+with `!important` · `animation-fill-mode: both` on every entrance animation ·
+`window.matchMedia('(prefers-reduced-motion: reduce)').matches` in JS, and
+`mq.addEventListener('change', …)` only if something must react to the setting
+changing mid-session.
+
 **Tailwind v4 splits `transform` into separate properties, and this will bite
 you.** There is no `tailwind.config.js` in this repo; v4 is configured in CSS,
 in the `@theme` block of `globals.css`. `--animate-sway` in that file is a
 complete worked example of adding a keyframe animation — read it before you
 write your first one, and follow its shape.
+
+**Reach for:** a `--animate-<name>` custom property plus a matching
+`@keyframes <name>` block, both **inside** the `@theme` block — that pair is
+what generates the `animate-<name>` utility · arbitrary properties like
+`[animation-delay:150ms]` for per-element timing · arbitrary values like
+`opacity-[calc(…)]` when a utility needs to read a CSS variable · the six
+`--color-rosehack-*` tokens already defined there, never a new hex.
 
 The trap is that v4 compiles `rotate-1` and `-translate-x-1/2` to the individual
 `rotate` and `translate` CSS properties, not to a `transform` shorthand. A
@@ -147,6 +169,13 @@ There is no existing client component to copy from and no IntersectionObserver
 anywhere in `src/`, so this is a new `'use client'` component. Every page is a
 server component; only the wrapper needs to be a client one.
 
+**Reach for:** `IntersectionObserver`, constructed with `threshold` and
+`rootMargin`, driven by `.observe(el)` and shut down with `.disconnect()` ·
+`useRef` for the element, `useState` for the shown flag, `useEffect` with a
+cleanup return · CSS `transition` on `opacity` and `transform` only, with
+`transition-delay` carrying the stagger · `cubic-bezier()` for the easing — the
+browser defaults all feel mechanical here.
+
 **Traps in this repo:**
 
 Because it renders a wrapper element, the rotation lands on the wrapper and not
@@ -155,13 +184,18 @@ that already carries `rotate-1`. This is the one case where a `transform`
 animation and a resting `rotate-*` coexist cleanly. Keep it that way; don't be
 tempted to put the class on the child.
 
-Applying it is six files by hand: `about` (two cards), `faq` (title card, the
-accordion card, the footnote card), `judges` (heading, intro, six cards),
-`sponsors` (heading, intro, four slots), `TracksSection` once PR #16 lands, and
-`page.tsx` for `Theme` and `Footer`. Not `Hero` — that's above the fold, use the
-entrance in section 2 instead. Inside a `.map()`, drive the delay off the index
-and cap it; past about 240ms total the last card feels late rather than
-staggered.
+Applying it is six files by hand:
+
+- `src/app/about/page.tsx` — the two paper cards
+- `src/app/faq/page.tsx` — title card, the card holding the six `QACard`s, the footnote card
+- `src/app/judges/page.tsx` — heading, intro, the six `JudgeCard`s
+- `src/app/sponsors/page.tsx` — heading, intro, the four logo slots
+- `src/components/tracks/TracksSection.tsx` — header card and each `TrackCard`, once PR #16 lands
+- `src/app/page.tsx` — `<Theme />` and `<Footer />`
+
+Not `src/components/home/Hero.tsx` — that's above the fold, use the entrance in
+section 2 instead. Inside a `.map()`, drive the delay off the index and cap it;
+past about 240ms total the last card feels late rather than staggered.
 
 **Done when:** reveals fire once; a card that is already in view on load appears
 without a flash of nothing; nothing animates with reduced motion set; no card
@@ -177,7 +211,8 @@ around it last. About a second end to end, then it sits still forever. The
 sequence tells the Root Access story in one gesture, which is the reason to do
 it in this order rather than any other.
 
-**The asset:** `logo-line.svg`, inlined into the hero.
+**The asset:** `public/logo-line.svg`, inlined into
+`src/components/home/Hero.tsx`.
 
 **The approach:** SVG strokes animate with `stroke-dasharray` and
 `stroke-dashoffset`. Normally you'd have to measure each path's length in
@@ -189,6 +224,13 @@ with `animation-delay`. No JavaScript.
 
 The dots in `rose-nodes` have no length to draw — fade or scale those in instead,
 timed to land just after the group they belong to.
+
+**Reach for:** `pathLength="1"` (already on every path), `stroke-dasharray` and
+`stroke-dashoffset` as the two properties you animate, `fill="none"` so a
+stroked path doesn't fill black, `currentColor` + the `color` property to set
+the colour · a `@keyframes` block taking `stroke-dashoffset` from 1 to 0 ·
+`animation-delay` per group for the sequence, `animation-fill-mode: both` so it
+holds · no JavaScript at all.
 
 **Traps in this repo:**
 
@@ -220,9 +262,10 @@ starts thin and fills in as you scroll, so by the time you reach the bottom of
 the page you're standing in a full meadow. It should be slow enough that nobody
 consciously notices it happening.
 
-**The assets:** `grass-band-1440.webp` (back, already swaying),
-`grass-meadow-border-1440.webp` (front) and the new `grass-dense-1440.webp` on
-top, each fading in at a different point in the scroll.
+**The assets:** `public/grass-band-1440.webp` (back, already swaying),
+`public/grass-meadow-border-1440.webp` (front) and the new
+`public/grass-dense-1440.webp` on top, each fading in at a different point in
+the scroll.
 
 **The approach:** one scroll listener writes a 0→1 progress value into a CSS
 custom property on `:root`; the three layers then derive their own opacity from
@@ -235,6 +278,14 @@ The trick that staggers the layers for free: browsers clamp `opacity` to 0–1, 
 a layer whose computed value is negative early in the scroll is simply not
 visible yet. Subtract a different amount per layer and they come in one after
 another with no thresholds in JavaScript.
+
+**Reach for:** `window.addEventListener('scroll', fn, { passive: true })` — the
+`passive` flag matters, without it scrolling waits on your handler ·
+`requestAnimationFrame` to throttle, `cancelAnimationFrame` to drop stale
+frames · `window.scrollY`, `document.body.scrollHeight`, `window.innerHeight`
+for the progress maths · `document.documentElement.style.setProperty('--…', …)`
+to write it · `calc()` in each layer's `opacity` to read it back · `useEffect`
+with a cleanup that removes the listener · `loading="lazy"` on the dense layer.
 
 **Traps in this repo:**
 
@@ -264,7 +315,7 @@ at a sensible fixed density rather than empty.
 **What it should feel like:** a thin scatter drifting down behind the content.
 Slow, sparse, low opacity — barely there.
 
-**The asset:** `petal.svg`.
+**The asset:** `public/petal.svg`.
 
 **Get the numbers right or it reads as snow.** Around 18 petals on screen, not 200. Fall times in the 14–24 second range, not 3. Opacity around 0.5. Each petal
 needs its own duration, horizontal drift and rotation, or they move as a sheet
@@ -275,6 +326,14 @@ mid-flight, so the first screen isn't empty for ten seconds.
 petal its values as CSS custom properties, and let a single keyframe animation do
 the work. Give the container `aria-hidden` — screen readers should never
 announce decoration.
+
+**Reach for:** `useState` + `useEffect` so the randomness happens after mount ·
+`Array.from({ length: n }, …)` with `Math.random()` to build the set · per-element
+CSS custom properties passed through the `style` prop, read by one shared
+`@keyframes` · `translate3d()` and `rotate()` inside that keyframe, nothing
+else · negative `animation-delay` to start petals mid-flight so the first screen
+isn't empty · `animation-iteration-count: infinite` · `aria-hidden="true"` on the
+container · `window.innerWidth` for the 768px guard.
 
 **Traps in this repo:**
 
@@ -300,15 +359,23 @@ nothing at all with reduced motion set.
 
 ## 5. Small ones, genuinely small
 
-**Countdown digit pulse.** `Countdown.tsx` shows `--` until mount, then swaps in
-with no transition. A quick scale pulse on change reads better than a flip and is
+**Reach for, across this section:** `grid-template-rows` transitioning between
+`0fr` and `1fr` with `overflow-hidden` on the child, via
+`transition-[grid-template-rows]` · `scale` alone on the countdown tiles, never
+`transform` · `transform-origin` on the sprout · `aria-hidden` on anything
+collapsed or decorative · plain `transition` utilities with an explicit
+`duration-*` everywhere else.
+
+**Countdown digit pulse.** `src/components/home/Countdown.tsx` shows `--` until
+mount, then swaps in with no transition. A quick scale pulse on change reads better than a flip and is
 a tenth of the work. The tiles carry `rotate-1` / `-rotate-1`, so animate
 **`scale` only** — in v4 that's a separate property from `rotate`, so the tilt
 survives. This is the one place where animating an individual property is the
 right call rather than the trap.
 
-**FAQ accordion.** `question-answer-card.tsx` conditionally mounts the answer, so
-there is nothing to animate out and no height to transition. The fix without a
+**FAQ accordion.** `src/components/faq/question-answer-card.tsx` conditionally
+mounts the answer, so there is nothing to animate out and no height to
+transition. The fix without a
 library is the `grid-template-rows` trick: wrap the answer in a grid that
 transitions between `0fr` and `1fr`, with `overflow-hidden` on the child. It
 animates to content height with no measuring and no JavaScript. Keep the
@@ -316,16 +383,17 @@ paragraph mounted and mark it `aria-hidden` while collapsed. Needs Chrome 107+,
 Safari 17.4+ or Firefox 120+; older browsers snap open, which is exactly what
 happens today, so there's no regression to guard against.
 
-**Mobile menu.** Same conditional-mount shape in `Navbar.tsx`, same fix — or keep
-it mounted and transition opacity and translate, with `pointer-events-none` while
-closed.
+**Mobile menu.** Same conditional-mount shape in `src/components/Navbar.tsx`,
+same fix — or keep it mounted and transition opacity and translate, with
+`pointer-events-none` while closed.
 
 **Hover states that currently snap.** Four places have hover classes with no
 `transition`: `hover:brightness-95`, `hover:text-rosehack-yellow`,
 `hover:bg-rosehack-cream/10`, `hover:opacity-80`. Adding a transition to each is
 a five-minute PR and makes the whole site feel less brittle.
 
-**Apply button sprouts.** `leaf-sprout.svg` scaling in at the corner on hover.
+**Apply button sprouts.** `public/leaf-sprout.svg` scaling in at the corner on
+hover.
 Set `transform-origin` to the stem base so it unfurls from where it's attached
 rather than growing out of its own middle. Keep it under 250ms.
 
@@ -335,45 +403,3 @@ rather than growing out of its own middle. Keep it under 250ms.
 exists — a terminal cursor typing `sudo bloom`, then a flower opening. That's a
 page build rather than an animation task, but it's the only place Root Access and
 In Bloom meet directly, and shipping a bare div there would be a shame.
-
----
-
-## Who does what
-
-Assigned by the files you're already in, so these don't collide.
-
-| Area                    | Work                                                                                                                                                                                                            |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| First, somebody         | The reduced-motion block and the `next-env.d.ts` ESLint fix. Twelve lines, unblocks everyone.                                                                                                                   |
-| Yuval (owns PR #16)     | Merge #16, then the logo draw-in and the track-card hover. Also please swap the hard-coded `#a98bc4` for `text-rosehack-purple` and `font-serif` for `font-cormorant` in `TracksSection` while you're in there. |
-| FAQ / about owner       | The reveal component, applying it in both pages, and the accordion.                                                                                                                                             |
-| Judges / sponsors owner | Applying the reveal in both, and the mobile menu.                                                                                                                                                               |
-| Open                    | The grass extraction and the meadow (decide as a group first), petals, countdown pulse, hover transitions, the 404.                                                                                             |
-
-Ask me for a denser grass layer or a different petal shape — those are a
-regenerate, not a redraw.
-
----
-
-## Definition of done, for all of it
-
-Nothing animates with `prefers-reduced-motion: reduce` set, the existing grass
-sway included. Test it: macOS System Settings → Accessibility → Display → Reduce
-motion.
-
-No animation touches `width`, `height`, `top`, `left` or `margin`. No keyframe
-animates `rotate`, `translate` or `scale` on an element carrying a resting
-`rotate-*` / `translate-*` / `scale-*` class, except the countdown pulse, which
-does it deliberately.
-
-Scroll reveals fire once. Zero hydration warnings on `/`, `/about`, `/faq`,
-`/judges`, `/sponsors`, `/tracks`. Ambient animation off below 768px.
-
-`npm run format && npm run check && npm run eslint` clean before you push, and
-`npm run build` succeeds — it's a static export, so a build failure is a deploy
-failure.
-
-No new hard-coded hex colours. Six tokens exist in `globals.css`; use them.
-
-And nothing delays, covers or moves the Apply button. If an animation and the
-conversion ever fight, the conversion wins.
