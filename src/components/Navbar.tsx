@@ -74,7 +74,9 @@ const Navbar = () => {
         </div>
 
         <Link
-          href="/#apply"
+          href="https://athena-wheat.vercel.app/rosehack/forms/participant"
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-rosehack-yellow text-rosehack-darkgreen hidden rounded-full px-7 py-2.5 text-sm font-semibold uppercase hover:brightness-95 md:block"
         >
           Apply Now
@@ -110,7 +112,9 @@ const Navbar = () => {
             </div>
           ))}
           <Link
-            href="/#apply"
+            href="https://athena-wheat.vercel.app/rosehack/forms/participant"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="bg-rosehack-yellow text-rosehack-darkgreen rounded-full px-7 py-2.5 font-semibold"
           >
