@@ -46,7 +46,9 @@ const Hero = () => {
       <Countdown />
       <div className="relative z-10 mt-2 flex flex-col gap-4 sm:flex-row">
         <Link
-          href="#apply"
+          href="https://athena-wheat.vercel.app/rosehack/forms/participant"
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-rosehack-yellow text-rosehack-darkgreen rounded-full px-11 py-4 font-semibold uppercase hover:brightness-95"
         >
           Apply Now

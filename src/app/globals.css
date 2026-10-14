@@ -9,6 +9,13 @@
   --color-rosehack-pink: #ffb6c0;
 
   --animate-sway: sway 5s ease-in-out infinite alternate;
+  --animate-blink: blink 1s steps(1) infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 
   @keyframes sway {
     from {
