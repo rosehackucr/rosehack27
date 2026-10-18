@@ -102,12 +102,20 @@ const Speakers = () => {
         Know someone who should be on this page?
       </p>
 
-      {/* TODO: link to the speaker interest form once it exists */}
-      <div className="relative z-20 mt-4 max-w-full">
-        <p className="border-rosehack-darkgreen rounded-full border-2 px-6 py-4 text-sm font-semibold uppercase sm:px-16 sm:text-base">
-          Speak at RoseHack &rsquo;27
-        </p>
-        <p className="mt-3 text-sm">Speaker applications are not open yet.</p>
+      <div className="relative z-20 mt-4 max-w-full text-center">
+        <a
+          href="https://athena-wheat.vercel.app/rosehack/forms/speaker"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group focus-visible:ring-rosehack-darkgreen/30 inline-block max-w-full rounded-full focus-visible:ring-4 focus-visible:outline-none"
+          aria-label="Apply to speak at RoseHack 2027"
+        >
+          <span className="border-rosehack-darkgreen group-hover:bg-rosehack-darkgreen block rounded-full border-2 px-6 py-4 text-sm font-semibold uppercase transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-[1.03] group-hover:text-white group-hover:shadow-lg group-active:scale-[0.98] motion-reduce:transform-none sm:px-16 sm:text-base">
+            Speak at RoseHack &rsquo;27
+          </span>
+        </a>
+
+        <p className="mt-3 text-sm">Click above to apply!</p>
       </div>
 
       <Image
