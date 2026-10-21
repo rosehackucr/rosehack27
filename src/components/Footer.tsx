@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// TODO: replace the "#" placeholders with the real URLs
 const socials = [
   {
     label: "Instagram",
