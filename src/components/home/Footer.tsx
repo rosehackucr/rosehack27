@@ -3,10 +3,10 @@ import Link from "next/link";
 
 // TODO: replace the "#" placeholders with the real URLs
 const socials = [
-  { label: "Instagram", short: "IG", href: "#" },
-  { label: "LinkedIn", short: "in", href: "#" },
+  { label: "Instagram", short: "IG", href: "https://www.instagram.com/rosehackucr?utm_source=ig_web_button_share_sheet&mdxt=ZDNlZDc0MzIxNw==" },
+  { label: "LinkedIn", short: "in", href: "https://www.linkedin.com/company/rosehack/" },
   { label: "Discord", short: "DC", href: "https://discord.gg/Md27WDfEZF" },
-  { label: "Email", short: "@", href: "mailto:hello@example.com" },
+  { label: "Email", short: "@", href: "mailto:ucr.rosehack@gmail.com" },
 ];
 
 const Footer = () => {
