@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Cormorant_Garamond, Poppins } from "next/font/google";
 import { ReactQueryClientProvider } from "@/utils/react-query";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 const poppins = Poppins({
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps) {
         <ReactQueryClientProvider>
           <Navbar />
           {children}
+          <Footer />
         </ReactQueryClientProvider>
       </body>
     </html>
