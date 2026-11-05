@@ -31,3 +31,22 @@
   --font-poppins: var(--next-font-poppins), sans-serif;
   --font-cormorant: var(--next-font-cormorant), serif;
 }
+
+/*
+ * Global reduced-motion override. Collapses every animation and transition to
+ * its end state. Entrance animations must use `animation-fill-mode: both` so a
+ * zero duration lands on the final frame. Class-driven transitions that start
+ * from `opacity: 0` need their own rule in here too.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
