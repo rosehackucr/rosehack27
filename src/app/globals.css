@@ -19,10 +19,10 @@
 
   @keyframes sway {
     from {
-      transform: skewX(-2deg);
+      transform: skewX(-4deg);
     }
     to {
-      transform: skewX(2deg);
+      transform: skewX(4deg);
     }
   }
 }
