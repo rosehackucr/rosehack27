@@ -1,35 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import Countdown from "./Countdown";
-
-const flowers = [
-  // top left
-  { src: "cream", className: "-top-2 left-3 w-7" },
-  { src: "cream", className: "-top-3 left-8 w-16" },
-  { src: "pink-lg", className: "-top-1 left-30 w-16 hidden md:block" },
-  { src: "pink-md", className: "top-17 left-36 w-14 hidden md:block" },
-  // top right
-  { src: "cream", className: "-top-3 right-6 w-14" },
-  { src: "pink-md", className: "-top-3 right-20 w-12" },
-  { src: "cream", className: "top-9 right-6 w-13" },
-  { src: "pink-lg", className: "top-3 right-34 w-14 hidden md:block" },
-  { src: "cream", className: "top-21 right-24 w-7 hidden md:block" },
-  { src: "cream", className: "top-21 right-36 w-7 hidden md:block" },
-];
+import Flowers from "@/components/scenery/Flowers";
+import Grass from "@/components/scenery/Grass";
+import { heroFlowers } from "@/components/scenery/flowerLayouts";
 
 const Hero = () => {
   return (
     <section className="bg-rosehack-darkgreen/85 text-rosehack-cream relative flex min-h-[calc(100svh-4.5rem)] flex-col items-center justify-center gap-6 overflow-hidden px-6 pt-20 pb-48 text-center md:pb-64">
-      {flowers.map(({ src, className }, i) => (
-        <Image
-          key={i}
-          src={`/flower-blossom-${src}.webp`}
-          alt=""
-          width={120}
-          height={120}
-          className={`pointer-events-none absolute ${className}`}
-        />
-      ))}
+      <Flowers flowers={heroFlowers} />
 
       <Image src="/logo.webp" alt="RoseHack logo" width={120} height={120} />
       <p className="-mt-3 text-xs font-semibold tracking-widest uppercase md:text-sm">
@@ -65,20 +44,7 @@ const Hero = () => {
         Free to attend · Open to all · No experience required
       </p>
 
-      <Image
-        src="/grass-band-1440.webp"
-        alt=""
-        width={1440}
-        height={120}
-        className="animate-sway pointer-events-none absolute bottom-0 h-28 w-full origin-bottom object-cover object-bottom md:h-48"
-      />
-      <Image
-        src="/grass-meadow-border-1440.webp"
-        alt=""
-        width={1440}
-        height={150}
-        className="pointer-events-none absolute bottom-0 h-36 w-full object-cover object-bottom md:h-52"
-      />
+      <Grass />
     </section>
   );
 };
