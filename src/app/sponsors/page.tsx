@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 import Flowers from "@/components/scenery/Flowers";
 import Grass from "@/components/scenery/Grass";
 import { sponsorsFlowers } from "@/components/scenery/flowerLayouts";
@@ -19,38 +20,42 @@ const Sponsors = () => {
       <p className="bg-rosehack-yellow text-rosehack-darkgreen rounded-full px-12 py-2 text-xs font-semibold uppercase">
         Coming soon
       </p>
-      <h1 className="text-5xl font-bold md:text-6xl">Sponsors</h1>
-      <p className="max-w-lg text-lg font-light">
-        We&rsquo;re building this year&rsquo;s sponsor lineup now. Sponsoring
-        RoseHack puts your name in front of hundreds of students at the very
-        start of their careers — and directly supports students underrepresented
-        in tech.
-      </p>
+      <Reveal>
+        <h1 className="text-5xl font-bold md:text-6xl">Sponsors</h1>
+      </Reveal>
+      <Reveal index={1}>
+        <p className="max-w-lg text-lg font-light">
+          We&rsquo;re building this year&rsquo;s sponsor lineup now. Sponsoring
+          RoseHack puts your name in front of hundreds of students at the very
+          start of their careers — and directly supports students
+          underrepresented in tech.
+        </p>
+      </Reveal>
 
       <div className="relative z-10 mt-6 grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
-        {sponsors.map(({ name, logo, href }) => (
-          <Link
-            key={name}
-            href={href}
-            target="_blank"
-            className="bg-rosehack-cream flex h-24 items-center justify-center rounded-lg p-4"
-          >
-            <Image
-              src={logo}
-              alt={name}
-              width={160}
-              height={64}
-              className="max-h-full w-auto object-contain"
-            />
-          </Link>
+        {sponsors.map(({ name, logo, href }, i) => (
+          <Reveal key={name} index={i}>
+            <Link
+              href={href}
+              target="_blank"
+              className="bg-rosehack-cream flex h-24 items-center justify-center rounded-lg p-4"
+            >
+              <Image
+                src={logo}
+                alt={name}
+                width={160}
+                height={64}
+                className="max-h-full w-auto object-contain"
+              />
+            </Link>
+          </Reveal>
         ))}
         {Array.from({ length: emptySlots }).map((_, i) => (
-          <div
-            key={i}
-            className="border-rosehack-cream/70 flex h-24 items-center justify-center rounded-lg border-2 border-dashed text-xs uppercase"
-          >
-            Your logo here
-          </div>
+          <Reveal key={i} index={sponsors.length + i}>
+            <div className="border-rosehack-cream/70 flex h-24 items-center justify-center rounded-lg border-2 border-dashed text-xs uppercase">
+              Your logo here
+            </div>
+          </Reveal>
         ))}
       </div>
 
