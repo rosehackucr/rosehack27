@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Grass from "@/components/scenery/Grass";
 
 const Theme = () => {
   return (
@@ -25,20 +25,7 @@ const Theme = () => {
         See the ten tracks
       </Link>
 
-      <Image
-        src="/grass-band-1440.webp"
-        alt=""
-        width={1440}
-        height={120}
-        className="animate-sway pointer-events-none absolute bottom-0 h-28 w-full origin-bottom object-cover object-bottom md:h-48"
-      />
-      <Image
-        src="/grass-meadow-border-1440.webp"
-        alt=""
-        width={1440}
-        height={150}
-        className="pointer-events-none absolute bottom-0 h-36 w-full object-cover object-bottom md:h-52"
-      />
+      <Grass />
     </section>
   );
 };
