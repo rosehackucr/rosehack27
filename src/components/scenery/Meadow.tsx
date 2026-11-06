@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 const STILL = 1;
 // The dense layer is 113KB and invisible early on, so it isn't mounted until
 // the footer is this far into view.
-const DENSE_FROM = 0.4;
+const DENSE_FROM = 0.3;
 
 const Meadow = () => {
   const [dense, setDense] = useState(false);
@@ -74,15 +74,7 @@ const Meadow = () => {
         height={120}
         className="animate-sway absolute bottom-0 h-28 w-full origin-bottom object-cover object-bottom opacity-[calc(var(--meadow,0)_*_1.5)] md:h-48"
       />
-      {/* Front: comes in from 30%, full by 80%. */}
-      <Image
-        src="/grass-meadow-border-1440.webp"
-        alt=""
-        width={1440}
-        height={150}
-        className="absolute bottom-0 h-36 w-full object-cover object-bottom opacity-[calc(var(--meadow,0)_*_2_-_0.6)] md:h-52"
-      />
-      {/* Dense: last in, from 67%, full at the very end of the page. */}
+      {/* Dense grass with small flowers: comes in from 30%, full by 80%. */}
       {dense && (
         <Image
           src="/grass-dense-1440.webp"
@@ -90,7 +82,7 @@ const Meadow = () => {
           width={1440}
           height={240}
           loading="lazy"
-          className="absolute bottom-0 h-40 w-full object-cover object-bottom opacity-[calc(var(--meadow,0)_*_2.5_-_1.5)] md:h-60"
+          className="absolute bottom-0 h-40 w-full object-cover object-bottom opacity-[calc(var(--meadow,0)_*_2_-_0.6)] md:h-60"
         />
       )}
     </div>
