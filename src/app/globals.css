@@ -118,6 +118,11 @@
     scroll-behavior: auto !important;
   }
 
+  /* Meadow: full and still instead of growing with the scroll. */
+  :root {
+    --meadow: 1 !important;
+  }
+
   /* Scroll reveal: never leave a card waiting at its hidden start. */
   [data-reveal] {
     opacity: 1 !important;
