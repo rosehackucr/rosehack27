@@ -1,6 +1,7 @@
 import LogoDraw from "./LogoDraw";
 import Link from "next/link";
 import Countdown from "./Countdown";
+import PlantFlowers from "./PlantFlowers";
 import EventLinks from "./EventLinks";
 import Flowers from "@/components/scenery/Flowers";
 import Grass from "@/components/scenery/Grass";
@@ -10,6 +11,7 @@ const Hero = () => {
   return (
     <section className="bg-rosehack-darkgreen/85 text-rosehack-cream relative flex min-h-[calc(100svh-4.5rem)] flex-col items-center justify-center gap-6 overflow-hidden px-6 pt-20 pb-48 text-center md:pb-64">
       <Flowers flowers={heroFlowers} />
+      <PlantFlowers />
 
       <LogoDraw />
       <p className="-mt-3 text-xs font-semibold tracking-widest uppercase md:text-sm">
