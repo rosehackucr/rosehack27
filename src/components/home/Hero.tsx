@@ -2,7 +2,6 @@ import LogoDraw from "./LogoDraw";
 import Link from "next/link";
 import Countdown from "./Countdown";
 import Flowers from "@/components/scenery/Flowers";
-import Grass from "@/components/scenery/Grass";
 import { heroFlowers } from "@/components/scenery/flowerLayouts";
 
 const Hero = () => {
@@ -43,8 +42,6 @@ const Hero = () => {
       <p className="relative z-10 text-sm">
         Free to attend · Open to all · No experience required
       </p>
-
-      <Grass />
     </section>
   );
 };

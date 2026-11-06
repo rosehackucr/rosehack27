@@ -109,6 +109,11 @@
     scroll-behavior: auto !important;
   }
 
+  /* Meadow: a fixed, sensible density instead of following the scroll. */
+  :root {
+    --meadow: 0.6 !important;
+  }
+
   /* Scroll reveal: never leave a card waiting at its hidden start. */
   [data-reveal] {
     opacity: 1 !important;

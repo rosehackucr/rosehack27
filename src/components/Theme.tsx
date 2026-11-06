@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Grass from "@/components/scenery/Grass";
 
 const Theme = () => {
   return (
@@ -24,8 +23,6 @@ const Theme = () => {
       >
         See the ten tracks
       </Link>
-
-      <Grass />
     </section>
   );
 };
