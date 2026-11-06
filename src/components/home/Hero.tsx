@@ -1,4 +1,4 @@
-import Image from "next/image";
+import LogoDraw from "./LogoDraw";
 import Link from "next/link";
 import Countdown from "./Countdown";
 import Flowers from "@/components/scenery/Flowers";
@@ -10,7 +10,7 @@ const Hero = () => {
     <section className="bg-rosehack-darkgreen/85 text-rosehack-cream relative flex min-h-[calc(100svh-4.5rem)] flex-col items-center justify-center gap-6 overflow-hidden px-6 pt-20 pb-48 text-center md:pb-64">
       <Flowers flowers={heroFlowers} />
 
-      <Image src="/logo.webp" alt="RoseHack logo" width={120} height={120} />
+      <LogoDraw />
       <p className="-mt-3 text-xs font-semibold tracking-widest uppercase md:text-sm">
         Presented by WINC
       </p>
