@@ -5,7 +5,8 @@ import BloomBud from "./BloomBud";
 
 const TARGET = new Date("2027-01-30T08:00:00-08:00").getTime();
 
-// The bud next to the countdown opens over the final 120 days.
+// The ring under the countdown fills, and its bud opens, over the final
+// 120 days.
 const BLOOM_DAYS = 120;
 
 const getTimeLeft = () => {
@@ -40,7 +41,7 @@ const Countdown = () => {
         );
 
   return (
-    <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+    <div className="flex flex-col items-center gap-4">
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         {(["days", "hours", "minutes", "seconds"] as const).map((unit, i) => {
           const value = time ? String(time[unit]).padStart(2, "0") : "--";
