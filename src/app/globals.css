@@ -13,6 +13,7 @@
   --animate-draw: draw 300ms cubic-bezier(0.65, 0, 0.35, 1) both;
   --animate-pop: pop 200ms ease-out both;
   --animate-fade-in: fade-in 350ms ease-out both;
+  --animate-fade-out: fade-out 200ms ease-in both;
 
   /* Strokes with pathLength="1" and stroke-dasharray: 1. */
   @keyframes draw {
@@ -41,6 +42,15 @@
     }
     to {
       opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 

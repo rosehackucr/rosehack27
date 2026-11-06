@@ -1,150 +1,137 @@
+import Image from "next/image";
+
 // The hero logo, drawn in on first paint: circuit, stem, leaves, bud, then the
-// ring closes and the gradient fills in behind. About a second, CSS only.
-// Paths are inlined from public/logo-line.svg (keep the two in sync); every
-// path has pathLength="1" so one dash rule draws them all.
+// ring closes. The lines are traced from logo.webp in its own pixel space
+// (viewBox 0 0 267 266), so they sit exactly on the real image, which then
+// fades in underneath while the drawn lines fade out. The resting state is
+// logo.webp itself. About a second, CSS only.
 
-const ringNodes = [
-  [182, 112],
-  [538, 112],
-  [156, 222],
-  [564, 222],
-];
-
-const circuitNodes = [
-  [198, 626],
-  [316, 642],
-  [398, 624],
-  [492, 572],
-  [262, 584],
-  [466, 596],
-  [510, 548],
-  [212, 566],
-  [334, 636],
-];
-
-// Each group's strokes draw from offset 1 to 0 after its delay.
+// Strokes use pathLength="1" and stroke-dasharray: 1; each group animates
+// stroke-dashoffset from 1 to 0 after its delay.
 const draw = "animate-draw [stroke-dasharray:1]";
-const node = "animate-pop origin-center [transform-box:fill-box]";
+// Dots and thorns have no length to draw, so they pop in from their centre.
+const pop = "animate-pop origin-center [transform-box:fill-box]";
+
+const circuitDots = [
+  [124.5, 225.5],
+  [100.7, 195],
+  [115, 208],
+  [133, 197],
+  [163, 204],
+  [155.5, 215.7],
+  [173.5, 225.5],
+  [78.5, 213],
+  [186.5, 212.5],
+];
+const stemDots = [
+  [126.7, 158.5],
+  [134, 186],
+];
+const ringDots = [
+  [64, 36],
+  [201, 36],
+  [57, 81],
+  [208, 81],
+];
+
+const Dots = ({ at, delay }: { at: number[][]; delay: string }) => (
+  <>
+    {at.map(([cx, cy]) => (
+      <circle
+        key={`${cx}-${cy}`}
+        cx={cx}
+        cy={cy}
+        r={3.4}
+        className={`${pop} ${delay}`}
+      />
+    ))}
+  </>
+);
 
 const LogoDraw = () => (
-  <svg
-    // Cropped to the ring so it fills the box like logo.webp did.
-    viewBox="53 57 614 614"
-    width={120}
-    height={120}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={13}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    role="img"
-    aria-label="RoseHack logo"
-  >
-    <defs>
-      <linearGradient id="rose-logo-fill" x1="0" y1="0" x2="1" y2="1">
-        <stop
-          offset="0.1"
-          style={{ stopColor: "var(--color-rosehack-purple)" }}
-        />
-        <stop
-          offset="0.4"
-          style={{ stopColor: "var(--color-rosehack-pink)" }}
-        />
-        <stop
-          offset="0.65"
-          style={{ stopColor: "var(--color-rosehack-lightgreen)" }}
-        />
-        <stop
-          offset="0.9"
-          style={{ stopColor: "var(--color-rosehack-yellow)" }}
-        />
-      </linearGradient>
-    </defs>
-
-    <circle
-      cx={360}
-      cy={364}
-      r={300}
-      fill="url(#rose-logo-fill)"
-      stroke="none"
-      className="animate-fade-in [animation-delay:700ms]"
+  <div className="relative">
+    <Image
+      src="/logo.webp"
+      alt="RoseHack logo"
+      width={120}
+      height={120}
+      className="animate-fade-in block [animation-delay:650ms]"
     />
-
-    <g className={`rose-circuit ${draw}`}>
-      <path pathLength={1} d="M348 548 L286 548 L286 596" />
-      <path pathLength={1} d="M286 596 L232 596 L232 626" />
-      <path pathLength={1} d="M372 528 L438 528 L438 572" />
-      <path pathLength={1} d="M438 572 L492 572" />
-      <path pathLength={1} d="M348 600 L316 600 L316 642" />
-      <path pathLength={1} d="M372 592 L398 592 L398 624" />
-      <path pathLength={1} d="M232 626 L198 626" />
-      <path pathLength={1} d="M262 644 L262 584" />
-      <path pathLength={1} d="M466 638 L466 596" />
-      <path pathLength={1} d="M510 592 L510 548" />
-      <path pathLength={1} d="M212 612 L212 566" />
-      <path pathLength={1} d="M348 636 L334 636" />
-    </g>
-
-    <g className={`rose-stem ${draw} [animation-delay:150ms]`}>
-      <path pathLength={1} d="M348 296 L348 656" />
-      <path pathLength={1} d="M372 296 L372 656" />
-      <path pathLength={1} d="M374 376 L406 396 L374 416 Z" />
-      <path pathLength={1} d="M346 496 L314 516 L346 536 Z" />
-    </g>
-
-    <g className={`rose-leaf ${draw} [animation-delay:300ms]`}>
-      <path
-        pathLength={1}
-        d="M203 430 C215 384 262 362 310 370 C300 414 252 440 203 430 Z"
-      />
-      <path pathLength={1} d="M228 420 L294 382" />
-      <path pathLength={1} d="M241 428 L299 395" />
-      <path
-        pathLength={1}
-        d="M398 512 C410 466 457 444 505 452 C495 496 447 522 398 512 Z"
-      />
-      <path pathLength={1} d="M423 502 L489 464" />
-      <path pathLength={1} d="M436 510 L494 477" />
-    </g>
-
-    <g className={`rose-bud ${draw} [animation-delay:450ms]`}>
-      <path
-        pathLength={1}
-        d="M266 120 L302 170 L332 152 C336 108 384 108 388 152 L416 170 L454 120 L454 236 C454 276 416 298 360 298 C304 298 266 276 266 236 Z"
-      />
-      <path pathLength={1} d="M278 154 L442 200" />
-    </g>
-
-    <g className={`rose-ring ${draw} [animation-delay:600ms]`}>
-      <path pathLength={1} d="M360 64 A300 300 0 1 1 359.6 64" />
-      <path pathLength={1} d="M100 250 A288 288 0 0 1 182 112" />
-      <path pathLength={1} d="M620 250 A288 288 0 0 0 538 112" />
-      <path pathLength={1} d="M80 222 L148 222" />
-      <path pathLength={1} d="M640 222 L572 222" />
-    </g>
-
-    {/* Dots have no length to draw, so they pop in after their group. */}
-    <g className="rose-nodes" fill="currentColor" stroke="none">
-      {circuitNodes.map(([cx, cy]) => (
-        <circle
-          key={`${cx}-${cy}`}
-          cx={cx}
-          cy={cy}
-          r={11}
-          className={`${node} [animation-delay:250ms]`}
+    <svg
+      viewBox="0 0 267 266"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={4}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className="text-rosehack-cream animate-fade-out absolute inset-0 size-full [animation-delay:850ms]"
+    >
+      <g className={`${draw}`}>
+        <path pathLength={1} d="M133.5 169.5 H125 V225.5" />
+        <path pathLength={1} d="M100.7 195 H92.5 V243" />
+        <path pathLength={1} d="M115 208 V217.5 H92.5" />
+        <path pathLength={1} d="M133 197 V251" />
+        <path pathLength={1} d="M133 204 H163" />
+        <path pathLength={1} d="M155.5 215.7 V248.8" />
+        <path pathLength={1} d="M173.5 225.5 H165.7 V246.3" />
+        <path pathLength={1} d="M78.5 213 V219 H52" />
+        <path pathLength={1} d="M186.5 212.5 V218.5 H214" />
+      </g>
+      <g className={`${draw} [animation-delay:120ms]`}>
+        <path pathLength={1} d="M126.7 156 V108" />
+        <path pathLength={1} d="M134 183 V108" />
+      </g>
+      <g className={`${draw} [animation-delay:240ms]`}>
+        <path
+          pathLength={1}
+          d="M77.5 139 H106 C110.5 139 113.5 142 113.5 146.5 V159.5 H85 C80.5 159.5 77.5 155.5 77.5 151 Z"
         />
-      ))}
-      {ringNodes.map(([cx, cy]) => (
-        <circle
-          key={`${cx}-${cy}`}
-          cx={cx}
-          cy={cy}
-          r={11}
-          className={`${node} [animation-delay:850ms]`}
+        <path pathLength={1} d="M84 143 L107 155.5" />
+        <path
+          pathLength={1}
+          d="M184 166.5 V179.5 C184 184 180.5 187 176 187 H147 V174 C147 169.5 150.5 166.5 155 166.5 Z"
         />
-      ))}
-    </g>
-  </svg>
+        <path pathLength={1} d="M152 182.5 L179.5 171" />
+      </g>
+      <g className={`${draw} [animation-delay:360ms]`}>
+        <path
+          pathLength={1}
+          d="M99.3 47 V86 C99.3 100 112 108.3 130.5 108.3 C149 108.3 161.5 100 161.5 86 V45 L144 52.5"
+        />
+        <path pathLength={1} d="M99.3 48.5 L161.5 72.8" />
+        <path pathLength={1} d="M118 52.5 C119 41 142 40 143.5 51.5 L130 59" />
+      </g>
+      <g className={`${draw} [animation-delay:480ms]`}>
+        <path
+          pathLength={1}
+          d="M132.5 2.5 A129.5 129.5 0 1 1 132.4 2.5"
+          strokeWidth={6.5}
+        />
+        <path pathLength={1} d="M64 36 A119.2 119.2 0 1 0 201 36" />
+        <path pathLength={1} d="M26.5 81 H57" />
+        <path pathLength={1} d="M238.5 81 H208" />
+      </g>
+
+      <g fill="currentColor" stroke="none">
+        <path
+          d="M110.7 191.6 L123 185.7 V197.6 Z"
+          className={`${pop} [animation-delay:200ms]`}
+        />
+        <path
+          d="M80 227 L90.7 220.8 V233.4 Z"
+          className={`${pop} [animation-delay:200ms]`}
+        />
+        <path
+          d="M136 140 L148.6 146.4 L136 152.9 Z"
+          className={`${pop} [animation-delay:320ms]`}
+        />
+        <Dots at={circuitDots} delay="[animation-delay:200ms]" />
+        <Dots at={stemDots} delay="[animation-delay:320ms]" />
+        <Dots at={ringDots} delay="[animation-delay:680ms]" />
+      </g>
+    </svg>
+  </div>
 );
 
 export default LogoDraw;
