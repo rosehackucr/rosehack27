@@ -107,14 +107,14 @@ const FAQ = () => {
                     href="https://discord.gg/Md27WDfEZF"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline hover:opacity-80"
+                    className="underline transition duration-200 hover:opacity-80"
                   >
                     Discord
                   </a>{" "}
                   or email{" "}
                   <a
                     href="mailto:ucr.rosehack@gmail.com"
-                    className="underline hover:opacity-80"
+                    className="underline transition duration-200 hover:opacity-80"
                   >
                     ucr.rosehack@gmail.com
                   </a>

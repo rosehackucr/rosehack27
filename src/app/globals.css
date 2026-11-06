@@ -9,6 +9,7 @@
   --color-rosehack-pink: #ffb6c0;
 
   --animate-sway: sway 5s ease-in-out infinite alternate;
+  --animate-tick: tick 300ms ease-out both;
   --animate-blink: blink 1s steps(1) infinite;
   --animate-draw: draw 300ms cubic-bezier(0.65, 0, 0.35, 1) both;
   --animate-pop: pop 200ms ease-out both;
@@ -82,6 +83,14 @@
     }
     to {
       transform: skewX(4deg);
+    }
+  }
+
+  /* Countdown tiles: the individual `scale` property, not `transform`, so
+     the tiles' resting rotate-1 / -rotate-1 survives the pulse. */
+  @keyframes tick {
+    40% {
+      scale: 1.06;
     }
   }
 }

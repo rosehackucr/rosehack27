@@ -61,7 +61,7 @@ const Sponsors = () => {
 
       <Link
         href="mailto:ucr.rosehack@gmail.com?subject=Sponsoring%20RoseHack%20'27"
-        className="bg-rosehack-yellow text-rosehack-darkgreen relative z-10 mt-4 rounded-full px-12 py-4 font-semibold uppercase hover:brightness-95"
+        className="bg-rosehack-yellow text-rosehack-darkgreen relative z-10 mt-4 rounded-full px-12 py-4 font-semibold uppercase transition duration-200 hover:brightness-95"
       >
         Become a sponsor
       </Link>

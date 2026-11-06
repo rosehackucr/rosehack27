@@ -41,7 +41,7 @@ const NotFound = () => {
       <div className="relative z-10 mt-6 flex flex-col gap-3 sm:flex-row sm:gap-4">
         <Link
           href="/"
-          className="bg-rosehack-yellow rounded-full px-10 py-3 font-semibold uppercase hover:brightness-95 md:py-4"
+          className="bg-rosehack-yellow rounded-full px-10 py-3 font-semibold uppercase transition duration-200 hover:brightness-95 md:py-4"
         >
           Back to Home
         </Link>
@@ -49,7 +49,7 @@ const NotFound = () => {
           target="_blank"
           rel="noopener noreferrer"
           href="https://discord.gg/Md27WDfEZF"
-          className="border-rosehack-darkgreen hover:bg-rosehack-darkgreen/10 rounded-full border-2 px-9 py-3 font-semibold uppercase md:py-4"
+          className="border-rosehack-darkgreen hover:bg-rosehack-darkgreen/10 rounded-full border-2 px-9 py-3 font-semibold uppercase transition duration-200 md:py-4"
         >
           Join the Discord
         </Link>

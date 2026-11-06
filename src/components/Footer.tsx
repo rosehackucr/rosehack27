@@ -43,7 +43,7 @@ const Footer = () => {
                 href={href}
                 aria-label={label}
                 target={href.startsWith("http") ? "_blank" : undefined}
-                className="border-rosehack-cream/50 hover:bg-rosehack-cream/10 focus-visible:outline-rosehack-cream flex h-12 w-12 items-center justify-center rounded-full border-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 md:h-14 md:w-14"
+                className="border-rosehack-cream/50 hover:bg-rosehack-cream/10 focus-visible:outline-rosehack-cream flex h-12 w-12 items-center justify-center rounded-full border-2 text-sm font-semibold transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 md:h-14 md:w-14"
               >
                 {short}
               </Link>

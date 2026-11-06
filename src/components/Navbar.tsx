@@ -42,7 +42,7 @@ const Navbar = () => {
               <div key={name} className="group relative">
                 <Link
                   href={href}
-                  className="hover:text-rosehack-yellow flex items-center gap-1"
+                  className="hover:text-rosehack-yellow flex items-center gap-1 transition duration-200"
                 >
                   {name}
                   <ChevronDown className="size-4 transition group-focus-within:rotate-180 group-hover:rotate-180" />
@@ -53,7 +53,7 @@ const Navbar = () => {
                       <Link
                         key={child.name}
                         href={child.href}
-                        className="hover:text-rosehack-yellow"
+                        className="hover:text-rosehack-yellow transition duration-200"
                       >
                         {child.name}
                       </Link>
@@ -65,7 +65,7 @@ const Navbar = () => {
               <Link
                 key={name}
                 href={href}
-                className="hover:text-rosehack-yellow"
+                className="hover:text-rosehack-yellow transition duration-200"
               >
                 {name}
               </Link>
@@ -77,7 +77,7 @@ const Navbar = () => {
           href="https://athena-wheat.vercel.app/rosehack/forms/participant"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-rosehack-yellow text-rosehack-darkgreen hidden rounded-full px-7 py-2.5 text-sm font-semibold uppercase hover:brightness-95 md:block"
+          className="bg-rosehack-yellow text-rosehack-darkgreen hidden rounded-full px-7 py-2.5 text-sm font-semibold uppercase transition duration-200 hover:brightness-95 md:block"
         >
           Apply Now
         </Link>
@@ -92,36 +92,46 @@ const Navbar = () => {
         </button>
       </div>
 
-      {open && (
-        <div className="flex flex-col items-center gap-5 pb-6 text-sm uppercase md:hidden">
-          {links.map(({ name, href, children }) => (
-            <div key={name} className="flex flex-col items-center gap-3">
-              <Link href={href} onClick={() => setOpen(false)}>
-                {name}
-              </Link>
-              {children?.map((child) => (
-                <Link
-                  key={child.name}
-                  href={child.href}
-                  onClick={() => setOpen(false)}
-                  className="text-xs opacity-80"
-                >
-                  {child.name}
-                </Link>
-              ))}
-            </div>
-          ))}
-          <Link
-            href="https://athena-wheat.vercel.app/rosehack/forms/participant"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            className="bg-rosehack-yellow text-rosehack-darkgreen rounded-full px-7 py-2.5 font-semibold"
+      {/* Stays mounted so it can animate: the row grows from 0fr to 1fr while
+          the links fade and slide in. Inert while closed, so hidden links
+          can't be tabbed to. */}
+      <div
+        inert={!open}
+        className={`grid transition-[grid-template-rows] duration-300 ease-out md:hidden ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+      >
+        <div className="overflow-hidden">
+          <div
+            className={`flex flex-col items-center gap-5 pb-6 text-sm uppercase transition duration-300 ease-out ${open ? "[transform:none] opacity-100" : "pointer-events-none [transform:translateY(-8px)] opacity-0"}`}
           >
-            Apply Now
-          </Link>
+            {links.map(({ name, href, children }) => (
+              <div key={name} className="flex flex-col items-center gap-3">
+                <Link href={href} onClick={() => setOpen(false)}>
+                  {name}
+                </Link>
+                {children?.map((child) => (
+                  <Link
+                    key={child.name}
+                    href={child.href}
+                    onClick={() => setOpen(false)}
+                    className="text-xs opacity-80"
+                  >
+                    {child.name}
+                  </Link>
+                ))}
+              </div>
+            ))}
+            <Link
+              href="https://athena-wheat.vercel.app/rosehack/forms/participant"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="bg-rosehack-yellow text-rosehack-darkgreen rounded-full px-7 py-2.5 font-semibold"
+            >
+              Apply Now
+            </Link>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
