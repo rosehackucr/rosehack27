@@ -3,7 +3,9 @@
 import { useEffect, useState, type CSSProperties } from "react";
 
 // A thin scatter of petals drifting down the viewport. Decorative only:
-// click-through, hidden from screen readers, below the navbar (z-50).
+// click-through, hidden from screen readers. The layer sits at z-index 1,
+// above section backgrounds but below text and cards (lifted to 2 in
+// globals.css), and the navbar (z-50).
 
 const COUNT = 18;
 const colors = [
@@ -64,7 +66,7 @@ const Petals = () => {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-40 hidden overflow-hidden md:block"
+      className="pointer-events-none fixed inset-0 z-1 hidden overflow-hidden md:block"
     >
       {petals.map((p, i) => (
         <svg

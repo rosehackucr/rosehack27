@@ -21,7 +21,7 @@ const About = () => {
 
       <div className="flex flex-col items-stretch gap-6 md:flex-row md:items-start md:gap-8">
         <Reveal className="w-full md:max-w-2xl">
-          <div className="relative w-full">
+          <div className="relative z-[2] w-full">
             <img
               src={Box1.src}
               alt=""
@@ -59,7 +59,7 @@ const About = () => {
         </Reveal>
 
         <Reveal index={1} className="w-full md:max-w-2xl">
-          <div className="relative w-full">
+          <div className="relative z-[2] w-full">
             <img
               src={Box2.src}
               alt=""

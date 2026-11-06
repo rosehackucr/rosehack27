@@ -157,3 +157,32 @@
     transform: none !important;
   }
 }
+
+/*
+ * Falling petals drift at z-index 1, over section backgrounds. Lift text,
+ * controls and cards to z-index 2 so the petals pass behind them instead of
+ * over them. In the base layer, so any Tailwind position or z-index utility
+ * on an element still wins. The navbar and whole sections are left alone.
+ * Containers aren't lifted wholesale: a z-index there would trap children
+ * that are meant to overlap neighbours (like the FAQ ribbons).
+ */
+@layer base {
+  :where(body > :not(nav))
+    :where(
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      a,
+      button,
+      label,
+      input,
+      li,
+      figure,
+      [class*="paper-card"]
+    ) {
+    position: relative;
+    z-index: 2;
+  }
+}
