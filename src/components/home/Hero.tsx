@@ -1,6 +1,7 @@
 import LogoDraw from "./LogoDraw";
 import Link from "next/link";
 import Countdown from "./Countdown";
+import EventLinks from "./EventLinks";
 import Flowers from "@/components/scenery/Flowers";
 import Grass from "@/components/scenery/Grass";
 import { heroFlowers } from "@/components/scenery/flowerLayouts";
@@ -22,6 +23,7 @@ const Hero = () => {
       <p className="font-semibold uppercase">
         January 30–31, 2027 · Winston Chung Hall
       </p>
+      <EventLinks />
       <Countdown />
       <div className="relative z-10 mt-2 flex flex-col gap-4 sm:flex-row">
         <Link

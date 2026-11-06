@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//RoseHack//RoseHack 2027//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:rosehack-2027@rosehack27.vercel.app
+DTSTAMP:20261105T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270201
+SUMMARY:RoseHack ’27
+LOCATION:Winston Chung Hall\, UC Riverside\, Riverside\, CA
+DESCRIPTION:UC Riverside's 24-hour women-centric hackathon. Free to atten
+ d\, open to all\, no experience required. https://rosehack27.vercel.app
+URL:https://rosehack27.vercel.app
+END:VEVENT
+END:VCALENDAR
