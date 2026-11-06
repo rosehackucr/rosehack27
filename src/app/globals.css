@@ -92,4 +92,10 @@
     transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
+
+  /* Scroll reveal: never leave a card waiting at its hidden start. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

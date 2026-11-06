@@ -1,5 +1,6 @@
 import Image from "next/image";
 import QACard from "@/components/faq/question-answer-card";
+import Reveal from "@/components/Reveal";
 
 const FAQ = () => {
   return (
@@ -10,21 +11,23 @@ const FAQ = () => {
         <div className="relative mx-auto max-w-3xl">
           {/* Title Section */}
           <section className="text-center">
-            <div className="m-8 mb-0 inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-36 py-8 drop-shadow-[0_8px_7px_rgba(80,60,60,0.22)]">
-              <h2 className="font-poppins text-rosehack-darkgreen font-bold">
-                QUESTIONS WE GET A LOT
-              </h2>
+            <Reveal className="inline-block">
+              <div className="m-8 mb-0 inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-36 py-8 drop-shadow-[0_8px_7px_rgba(80,60,60,0.22)]">
+                <h2 className="font-poppins text-rosehack-darkgreen font-bold">
+                  QUESTIONS WE GET A LOT
+                </h2>
 
-              <h1 className="text-rosehack-purple font-cormorant text-7xl font-bold">
-                FAQ
-              </h1>
-            </div>
+                <h1 className="text-rosehack-purple font-cormorant text-7xl font-bold">
+                  FAQ
+                </h1>
+              </div>
+            </Reveal>
           </section>
         </div>
       </section>
 
       <section className="mx-auto justify-center pt-0 text-left">
-        <div className="relative mx-auto max-w-3xl overflow-visible">
+        <Reveal className="relative mx-auto max-w-3xl overflow-visible">
           {/* Yellow Ribbon */}
           <Image
             src="/faq/yellow.webp"
@@ -89,33 +92,35 @@ const FAQ = () => {
               />
             </div>
           </section>
-        </div>
+        </Reveal>
       </section>
 
       <section className="relative z-10 mx-auto -mt-12 justify-center pb-5 text-center">
         <div className="relative mx-auto max-w-lg">
           {/* Footnote Section */}
           <section className="text-center">
-            <div className="inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-10 py-8 drop-shadow-[0_8px_7px_rgba(80,60,60,0.20)]">
-              <p className="text-base">
-                Still wondering something? Ask us in the{" "}
-                <a
-                  href="https://discord.gg/Md27WDfEZF"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:opacity-80"
-                >
-                  Discord
-                </a>{" "}
-                or email{" "}
-                <a
-                  href="mailto:ucr.rosehack@gmail.com"
-                  className="underline hover:opacity-80"
-                >
-                  ucr.rosehack@gmail.com
-                </a>
-              </p>
-            </div>
+            <Reveal className="inline-block">
+              <div className="inline-flex flex-col items-center justify-center bg-[url('/faq/paper-card-top.webp')] bg-cover bg-center bg-no-repeat px-10 py-8 drop-shadow-[0_8px_7px_rgba(80,60,60,0.20)]">
+                <p className="text-base">
+                  Still wondering something? Ask us in the{" "}
+                  <a
+                    href="https://discord.gg/Md27WDfEZF"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:opacity-80"
+                  >
+                    Discord
+                  </a>{" "}
+                  or email{" "}
+                  <a
+                    href="mailto:ucr.rosehack@gmail.com"
+                    className="underline hover:opacity-80"
+                  >
+                    ucr.rosehack@gmail.com
+                  </a>
+                </p>
+              </div>
+            </Reveal>
           </section>
         </div>
       </section>

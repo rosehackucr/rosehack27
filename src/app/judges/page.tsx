@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import JudgeCard from "@/components/judges/JudgeCard";
 import { judges } from "@/data/judges";
 import Flowers from "@/components/scenery/Flowers";
@@ -14,20 +15,30 @@ const Judges = () => {
       <span className="bg-rosehack-yellow rounded-full px-16 py-3 text-xs font-bold uppercase">
         Coming Soon
       </span>
-      <h1 className="font-cormorant text-rosehack-purple mt-6 text-6xl md:text-7xl">
-        Judges
-      </h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed font-light">
-        Our judges spend Sunday afternoon with the teams, hear what they built
-        and why, and score every project against a shared rubric. The panel is
-        announced this winter.
-      </p>
+      <Reveal>
+        <h1 className="font-cormorant text-rosehack-purple mt-6 text-6xl md:text-7xl">
+          Judges
+        </h1>
+      </Reveal>
+      <Reveal index={1}>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed font-light">
+          Our judges spend Sunday afternoon with the teams, hear what they built
+          and why, and score every project against a shared rubric. The panel is
+          announced this winter.
+        </p>
+      </Reveal>
 
       <div className="mt-10 grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {judges.length > 0
-          ? judges.map((judge) => <JudgeCard key={judge.name} judge={judge} />)
+          ? judges.map((judge, i) => (
+              <Reveal key={judge.name} index={i}>
+                <JudgeCard judge={judge} />
+              </Reveal>
+            ))
           : Array.from({ length: PLACEHOLDER_COUNT }, (_, i) => (
-              <JudgeCard key={i} />
+              <Reveal key={i} index={i}>
+                <JudgeCard />
+              </Reveal>
             ))}
       </div>
 

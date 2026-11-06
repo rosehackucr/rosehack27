@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 
 type Card = {
   label: string;
@@ -85,37 +86,41 @@ const awards: Card[] = [
 
 const TrackCard = ({
   card,
+  index,
   award = false,
 }: {
   card: Card;
+  index: number;
   award?: boolean;
 }) => (
-  <li className="flex flex-col bg-[url('/paper-card-md.webp')] bg-[length:100%_100%] bg-no-repeat px-4 pt-4 pb-10 drop-shadow-md">
-    <p
-      className={`py-2 text-center text-xs font-semibold tracking-wider uppercase ${
-        award
-          ? "bg-rosehack-yellow text-rosehack-darkgreen"
-          : "bg-rosehack-darkgreen/85 text-rosehack-cream"
-      }`}
-    >
-      {card.label}
-    </p>
-    <div className="flex flex-col gap-3 px-4 pt-6 md:px-5">
-      <Image
-        src={`/icon-${card.icon}.webp`}
-        alt=""
-        width={32}
-        height={32}
-        className="h-8 w-8"
-      />
-      <h3 className="font-serif text-2xl font-semibold text-[#a98bc4] md:text-3xl">
-        {card.title}
-      </h3>
-      <p className="text-rosehack-darkgreen text-sm leading-relaxed md:text-base">
-        {card.description}
+  <Reveal as="li" index={index}>
+    <div className="flex h-full flex-col bg-[url('/paper-card-md.webp')] bg-[length:100%_100%] bg-no-repeat px-4 pt-4 pb-10 drop-shadow-md">
+      <p
+        className={`py-2 text-center text-xs font-semibold tracking-wider uppercase ${
+          award
+            ? "bg-rosehack-yellow text-rosehack-darkgreen"
+            : "bg-rosehack-darkgreen/85 text-rosehack-cream"
+        }`}
+      >
+        {card.label}
       </p>
+      <div className="flex flex-col gap-3 px-4 pt-6 md:px-5">
+        <Image
+          src={`/icon-${card.icon}.webp`}
+          alt=""
+          width={32}
+          height={32}
+          className="h-8 w-8"
+        />
+        <h3 className="font-serif text-2xl font-semibold text-[#a98bc4] md:text-3xl">
+          {card.title}
+        </h3>
+        <p className="text-rosehack-darkgreen text-sm leading-relaxed md:text-base">
+          {card.description}
+        </p>
+      </div>
     </div>
-  </li>
+  </Reveal>
 );
 
 const TracksSection = () => {
@@ -125,22 +130,24 @@ const TracksSection = () => {
       className="bg-rosehack-cream bg-[url('/gingham-tile-160.webp')] bg-[length:160px_160px] px-6 py-16 md:py-24"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-10">
-        <header className="bg-rosehack-cream mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-md px-8 py-10 text-center shadow-md">
-          <p className="text-rosehack-darkgreen text-xs font-semibold tracking-widest uppercase">
-            Pick a gap you care about
-          </p>
-          <h1 className="font-serif text-5xl font-semibold text-[#a98bc4] md:text-6xl">
-            Ten Tracks
-          </h1>
-          <p className="text-rosehack-darkgreen text-lg">
-            Eight build tracks and two special awards. Enter the one that fits
-            your idea — every project is eligible for the awards on top.
-          </p>
-        </header>
+        <Reveal>
+          <header className="bg-rosehack-cream mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-md px-8 py-10 text-center shadow-md">
+            <p className="text-rosehack-darkgreen text-xs font-semibold tracking-widest uppercase">
+              Pick a gap you care about
+            </p>
+            <h1 className="font-serif text-5xl font-semibold text-[#a98bc4] md:text-6xl">
+              Ten Tracks
+            </h1>
+            <p className="text-rosehack-darkgreen text-lg">
+              Eight build tracks and two special awards. Enter the one that fits
+              your idea — every project is eligible for the awards on top.
+            </p>
+          </header>
+        </Reveal>
 
         <ul className="grid gap-6 md:grid-cols-2">
-          {tracks.map((track) => (
-            <TrackCard key={track.title} card={track} />
+          {tracks.map((track, i) => (
+            <TrackCard key={track.title} card={track} index={i} />
           ))}
         </ul>
 
@@ -153,8 +160,8 @@ const TracksSection = () => {
         </div>
 
         <ul className="grid gap-6 md:grid-cols-2">
-          {awards.map((award) => (
-            <TrackCard key={award.title} card={award} award />
+          {awards.map((award, i) => (
+            <TrackCard key={award.title} card={award} index={i} award />
           ))}
         </ul>
       </div>
