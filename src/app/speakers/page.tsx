@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import SpeakerCard from "@/components/speakers/SpeakerCard";
 import { speakers } from "@/data/speakers";
 import Flowers from "@/components/scenery/Flowers";
@@ -15,23 +16,31 @@ const Speakers = () => {
         Coming Soon
       </span>
 
-      <h1 className="font-cormorant text-rosehack-purple mt-6 text-6xl md:text-7xl">
-        Speakers
-      </h1>
+      <Reveal>
+        <h1 className="font-cormorant text-rosehack-purple mt-6 text-6xl md:text-7xl">
+          Speakers
+        </h1>
+      </Reveal>
 
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed font-light">
-        Engineers, founders and researchers join us across the weekend to run
-        workshops, judge projects and talk about the paths that got them here.
-        The lineup is announced this winter.
-      </p>
+      <Reveal index={1}>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed font-light">
+          Engineers, founders and researchers join us across the weekend to run
+          workshops, judge projects and talk about the paths that got them here.
+          The lineup is announced this winter.
+        </p>
+      </Reveal>
 
       <div className="mt-10 grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {speakers.length > 0
-          ? speakers.map((speaker) => (
-              <SpeakerCard key={speaker.name} speaker={speaker} />
+          ? speakers.map((speaker, i) => (
+              <Reveal key={speaker.name} index={i}>
+                <SpeakerCard speaker={speaker} />
+              </Reveal>
             ))
           : Array.from({ length: PLACEHOLDER_COUNT }, (_, i) => (
-              <SpeakerCard key={i} />
+              <Reveal key={i} index={i}>
+                <SpeakerCard />
+              </Reveal>
             ))}
       </div>
 
