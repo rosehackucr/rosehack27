@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 @theme {
+  /* darkgreen and purple are darkened (same hue) to meet WCAG AA 4.5:1 for
+     text on cream, yellow and the light page gradients, for cream or yellow
+     text on solid green, and in every hover state. */
   --color-rosehack-cream: #f9f9f4;
   --color-rosehack-yellow: #fff79a;
   --color-rosehack-lightgreen: #a7dba9;
-  --color-rosehack-darkgreen: #679573;
-  --color-rosehack-purple: #ae94be;
+  --color-rosehack-darkgreen: #486851;
+  --color-rosehack-purple: #7f5b95;
   --color-rosehack-pink: #ffb6c0;
 
   --animate-sway: sway 5s ease-in-out infinite alternate;

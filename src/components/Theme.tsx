@@ -5,7 +5,7 @@ const Theme = () => {
   return (
     <section
       id="theme"
-      className="bg-rosehack-darkgreen/85 text-rosehack-cream relative flex flex-col items-center gap-6 overflow-hidden px-6 pt-24 pb-52 text-center md:pt-32 md:pb-72"
+      className="bg-rosehack-darkgreen text-rosehack-cream relative flex flex-col items-center gap-6 overflow-hidden px-6 pt-24 pb-52 text-center md:pt-32 md:pb-72"
     >
       <p className="text-rosehack-yellow text-xs font-semibold tracking-widest uppercase md:text-sm">
         This year&rsquo;s challenge

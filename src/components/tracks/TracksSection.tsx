@@ -99,7 +99,7 @@ const TrackCard = ({
         className={`py-2 text-center text-xs font-semibold tracking-wider uppercase ${
           award
             ? "bg-rosehack-yellow text-rosehack-darkgreen"
-            : "bg-rosehack-darkgreen/85 text-rosehack-cream"
+            : "bg-rosehack-darkgreen text-rosehack-cream"
         }`}
       >
         {card.label}
@@ -112,7 +112,7 @@ const TrackCard = ({
           height={32}
           className="h-8 w-8"
         />
-        <h3 className="font-serif text-2xl font-semibold text-[#a98bc4] md:text-3xl">
+        <h3 className="text-rosehack-purple font-serif text-2xl font-semibold md:text-3xl">
           {card.title}
         </h3>
         <p className="text-rosehack-darkgreen text-sm leading-relaxed md:text-base">
@@ -135,7 +135,7 @@ const TracksSection = () => {
             <p className="text-rosehack-darkgreen text-xs font-semibold tracking-widest uppercase">
               Pick a gap you care about
             </p>
-            <h1 className="font-serif text-5xl font-semibold text-[#a98bc4] md:text-6xl">
+            <h1 className="text-rosehack-purple font-serif text-5xl font-semibold md:text-6xl">
               Ten Tracks
             </h1>
             <p className="text-rosehack-darkgreen text-lg">

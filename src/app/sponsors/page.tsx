@@ -14,7 +14,7 @@ const Sponsors = () => {
   const emptySlots = Math.max(SLOTS - sponsors.length, 0);
 
   return (
-    <section className="bg-rosehack-darkgreen/85 text-rosehack-cream relative flex min-h-[calc(100svh-4.5rem)] flex-col items-center gap-6 overflow-hidden px-6 pt-20 pb-48 text-center md:pb-64">
+    <section className="bg-rosehack-darkgreen text-rosehack-cream relative flex min-h-[calc(100svh-4.5rem)] flex-col items-center gap-6 overflow-hidden px-6 pt-20 pb-48 text-center md:pb-64">
       <Flowers flowers={sponsorsFlowers} />
 
       <p className="bg-rosehack-yellow text-rosehack-darkgreen rounded-full px-12 py-2 text-xs font-semibold uppercase">

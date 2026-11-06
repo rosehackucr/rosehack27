@@ -113,7 +113,7 @@ const Navbar = () => {
                     key={child.name}
                     href={child.href}
                     onClick={() => setOpen(false)}
-                    className="text-xs opacity-80"
+                    className="text-xs"
                   >
                     {child.name}
                   </Link>
