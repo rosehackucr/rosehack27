@@ -14,6 +14,7 @@
   --animate-pop: pop 200ms ease-out both;
   --animate-fade-in: fade-in 350ms ease-out both;
   --animate-fade-out: fade-out 200ms ease-in both;
+  --animate-fall: fall 18s linear infinite;
 
   /* Strokes with pathLength="1" and stroke-dasharray: 1. */
   @keyframes draw {
@@ -51,6 +52,21 @@
     }
     to {
       opacity: 0;
+    }
+  }
+
+  /* Petals: each one sets its own drift and spin as custom properties. */
+  @keyframes fall {
+    from {
+      transform: translate3d(0, -10vh, 0) rotate(var(--petal-spin-from));
+    }
+    50% {
+      transform: translate3d(calc(var(--petal-drift) * -0.4), 50vh, 0)
+        rotate(calc((var(--petal-spin-from) + var(--petal-spin-to)) / 2));
+    }
+    to {
+      transform: translate3d(var(--petal-drift), 110vh, 0)
+        rotate(var(--petal-spin-to));
     }
   }
 
