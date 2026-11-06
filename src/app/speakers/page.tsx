@@ -1,6 +1,7 @@
 import SpeakerCard from "@/components/speakers/SpeakerCard";
 import { speakers } from "@/data/speakers";
 import Flowers from "@/components/scenery/Flowers";
+import Grass from "@/components/scenery/Grass";
 import { cardPageFlowers } from "@/components/scenery/flowerLayouts";
 
 const PLACEHOLDER_COUNT = 6;
@@ -53,6 +54,8 @@ const Speakers = () => {
 
         <p className="mt-3 text-sm">Click above to apply!</p>
       </div>
+
+      <Grass size="short" />
     </main>
   );
 };

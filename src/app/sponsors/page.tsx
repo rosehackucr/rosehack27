@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Flowers from "@/components/scenery/Flowers";
+import Grass from "@/components/scenery/Grass";
 import { sponsorsFlowers } from "@/components/scenery/flowerLayouts";
 
 // Swap these out for real sponsors as they sign on, e.g.
@@ -64,6 +65,8 @@ const Sponsors = () => {
       >
         Become a sponsor
       </Link>
+
+      <Grass />
     </section>
   );
 };

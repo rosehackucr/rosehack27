@@ -2,6 +2,7 @@ import Reveal from "@/components/Reveal";
 import JudgeCard from "@/components/judges/JudgeCard";
 import { judges } from "@/data/judges";
 import Flowers from "@/components/scenery/Flowers";
+import Grass from "@/components/scenery/Grass";
 import { cardPageFlowers } from "@/components/scenery/flowerLayouts";
 
 const PLACEHOLDER_COUNT = 6;
@@ -52,6 +53,8 @@ const Judges = () => {
       >
         Judge at RoseHack &rsquo;27
       </a>
+
+      <Grass size="short" />
     </section>
   );
 };

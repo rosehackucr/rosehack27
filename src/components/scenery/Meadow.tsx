@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-// The meadow at the very bottom of every page, inside the footer's bottom
+// An extra meadow at the very bottom of every page (the sections keep their
+// own grass), inside the footer's bottom
 // padding so it never covers text. It grows as the footer scrolls into view:
 // one passive scroll listener writes a 0-1 progress value to --meadow on
 // :root, and each layer derives its own opacity from it in CSS. Browsers clamp
