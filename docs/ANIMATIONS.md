@@ -1,10 +1,28 @@
+## Status — what was built
+
+Everything below has been built, in small PRs. This section records where the
+build ended up and where it differs from the plan; the rest of the document is
+kept as the original spec.
+
+| Section          | PR       | Notes                                                                                                                                                                                                                                                                                        |
+| ---------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eslint ignore    | —        | `next-env.d.ts` was already in `ignores` (d70f436) before this work started.                                                                                                                                                                                                                 |
+| Ground rules     | #28      | Global `prefers-reduced-motion` block at the bottom of `globals.css`. Also zeroes delays.                                                                                                                                                                                                    |
+| De-duplication   | #29      | `src/components/scenery/`: `Flowers`, `Grass`, `flowerLayouts.ts`. Covers six files, not three: Speakers and the 404 page had copies too.                                                                                                                                                    |
+| §1 scroll reveal | #31      | `src/components/Reveal.tsx`. Cards already on screen at load are never hidden. The home page wraps About and Theme; `<Footer />` lives in `layout.tsx`, so it isn't wrapped.                                                                                                                 |
+| §2 logo draw-in  | #32      | **Not built from `logo-line.svg`**, which was a different drawing from `logo.webp` and has been deleted. The lines are traced from `logo.webp` itself (`src/components/home/LogoDraw.tsx`, viewBox 0 0 267 266), draw in, then hand off to the real image. The resting state is `logo.webp`. |
+| §3 meadow        | #35      | Built, then reshaped on review: a fixed meadow covered the page text while scrolling. The section grass stays, and an extra meadow (back band + dense layer, no big-blossom front border) grows inside the footer as it scrolls into view.                                                   |
+| §4 petals        | #33      | `src/components/Petals.tsx`. Floats over the page (click-through, under the navbar) rather than "behind the content", because every section has a solid background. The navbar was already `z-50`.                                                                                           |
+| §5 small ones    | #30, #34 | #30 doubled the grass sway on request. #34 covers the countdown pulse, FAQ accordion, mobile menu, Apply sprout, track cards and 14 hover transitions, not four. The 404 page was already built; `error.tsx` was designed separately in #38.                                                 |
+
+Paths that moved since this was written: `Theme.tsx` is `src/components/Theme.tsx`, not `home/`.
+
 ## The assets — what's in the repo and where
 
 These are already committed on `main`. Exact paths, so nobody has to go looking.
 
 | Path                           | Size   | Used by                       |
 | ------------------------------ | ------ | ----------------------------- |
-| `public/logo-line.svg`         | 3.3 KB | §2 — the logo draw-in         |
 | `public/petal.svg`             | 843 B  | §4 — falling petals           |
 | `public/leaf-sprout.svg`       | 686 B  | §5 — Apply button hover       |
 | `public/grass-dense-1440.webp` | 113 KB | §3 — the meadow's third layer |
@@ -18,24 +36,12 @@ Already in `public/` from before, and used by §3:
 Pillow, which aren't project dependencies. It lives with the design files; ask
 for it if you want to regenerate the grass at a different density.
 
-### `public/logo-line.svg`
+### `public/logo-line.svg` (deleted)
 
-The one that needs explaining. `public/logo.webp` is a 267×266 raster image, so
-it cannot be drawn, morphed or animated in parts — only moved and faded as a
-whole. The line-art version exists so the draw-in is possible at all.
-
-It is organised for exactly that. Five groups, which are the animation's stages
-in order: `.rose-circuit`, `.rose-stem`, `.rose-leaf`, `.rose-bud`,
-`.rose-ring`. Every stroked path inside them carries `pathLength="1"`. The
-filled dots are separated into `.rose-nodes`, because a dot has no length to
-draw — fade or scale those instead.
-
-It is stroked in `currentColor`, so set its colour with the `color` property
-rather than editing the file. Two consequences: it has to be **inlined into your
-JSX**, because `next/image` renders it as an opaque image and you can't reach
-the paths — it sits in `public/` as the version-controlled source, not as
-something you load by URL. And the `images` CI check ignores `.svg` entirely, so
-it passes through untouched.
+This was meant to be a line-art version of `logo.webp` for the §2 draw-in, but it
+was a different drawing (single ring, double-line stem, crown-shaped bud, oval
+leaves, stair-step circuit). It was deleted; the draw-in now uses lines traced
+from `logo.webp` itself. See the Status table.
 
 ### `public/grass-dense-1440.webp`
 
@@ -211,8 +217,8 @@ around it last. About a second end to end, then it sits still forever. The
 sequence tells the Root Access story in one gesture, which is the reason to do
 it in this order rather than any other.
 
-**The asset:** `public/logo-line.svg`, inlined into
-`src/components/home/Hero.tsx`.
+**The asset:** originally `public/logo-line.svg`. As built, lines traced from
+`logo.webp`, in `src/components/home/LogoDraw.tsx` (see the Status table).
 
 **The approach:** SVG strokes animate with `stroke-dasharray` and
 `stroke-dashoffset`. Normally you'd have to measure each path's length in
