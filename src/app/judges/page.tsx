@@ -49,7 +49,7 @@ const Judges = () => {
         href="https://athena-wheat.vercel.app/rosehack/forms/judge"
         target="_blank"
         rel="noopener noreferrer"
-        className="border-rosehack-darkgreen hover:bg-rosehack-darkgreen/10 relative z-20 mt-4 rounded-full border-2 px-16 py-4 font-semibold uppercase"
+        className="border-rosehack-darkgreen hover:bg-rosehack-darkgreen/10 relative z-20 mt-4 rounded-full border-2 px-16 py-4 font-semibold uppercase transition duration-200"
       >
         Judge at RoseHack &rsquo;27
       </a>

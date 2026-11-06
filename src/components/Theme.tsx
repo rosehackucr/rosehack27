@@ -20,7 +20,7 @@ const Theme = () => {
       </p>
       <Link
         href="/tracks"
-        className="bg-rosehack-yellow text-rosehack-darkgreen relative z-10 mt-4 rounded-full px-11 py-4 font-semibold uppercase hover:brightness-95"
+        className="bg-rosehack-yellow text-rosehack-darkgreen relative z-10 mt-4 rounded-full px-11 py-4 font-semibold uppercase transition duration-200 hover:brightness-95"
       >
         See the ten tracks
       </Link>

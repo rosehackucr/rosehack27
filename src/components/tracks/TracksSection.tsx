@@ -94,7 +94,7 @@ const TrackCard = ({
   award?: boolean;
 }) => (
   <Reveal as="li" index={index}>
-    <div className="flex h-full flex-col bg-[url('/paper-card-md.webp')] bg-[length:100%_100%] bg-no-repeat px-4 pt-4 pb-10 drop-shadow-md">
+    <div className="flex h-full flex-col bg-[url('/paper-card-md.webp')] bg-[length:100%_100%] bg-no-repeat px-4 pt-4 pb-10 drop-shadow-md transition-transform duration-150 ease-out hover:[transform:translateY(-2px)_scale(1.01)]">
       <p
         className={`py-2 text-center text-xs font-semibold tracking-wider uppercase ${
           award
