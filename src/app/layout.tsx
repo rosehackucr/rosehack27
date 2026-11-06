@@ -3,7 +3,6 @@ import { Cormorant_Garamond, Poppins } from "next/font/google";
 import { ReactQueryClientProvider } from "@/utils/react-query";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import Meadow from "@/components/scenery/Meadow";
 import Petals from "@/components/Petals";
 
 const poppins = Poppins({
@@ -37,7 +36,6 @@ export default function RootLayout({ children }: LayoutProps) {
           <Navbar />
           {children}
           <Footer />
-          <Meadow />
           <Petals />
         </ReactQueryClientProvider>
       </body>
