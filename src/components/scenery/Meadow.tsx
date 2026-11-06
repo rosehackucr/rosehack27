@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 // An extra meadow at the very bottom of every page (the sections keep their
-// own grass), inside the footer's bottom
-// padding so it never covers text. It grows as the footer scrolls into view:
+// own grass), inside the footer's bottom padding so it never covers text.
+// It grows as the footer scrolls into view:
 // one passive scroll listener writes a 0-1 progress value to --meadow on
 // :root, and each layer derives its own opacity from it in CSS. Browsers clamp
 // opacity to 0-1, so subtracting a different amount per layer staggers them
