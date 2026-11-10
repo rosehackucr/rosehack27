@@ -5,7 +5,7 @@ const TracksPage = () => {
   return (
     <>
       <TracksSection />
-      <Theme />
+      <Theme showTracksLink={false} />
     </>
   );
 };
