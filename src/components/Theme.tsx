@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Grass from "@/components/scenery/Grass";
 
-const Theme = () => {
+type ThemeProps = {
+  showTracksLink?: boolean;
+};
+
+const Theme = ({ showTracksLink = true }: ThemeProps) => {
   return (
     <section
       id="theme"
@@ -18,12 +22,14 @@ const Theme = () => {
         anywhere there&rsquo;s a gap between a community and something they
         need.
       </p>
-      <Link
-        href="/tracks"
-        className="bg-rosehack-yellow text-rosehack-darkgreen relative z-10 mt-4 rounded-full px-11 py-4 font-semibold uppercase transition duration-200 hover:brightness-95"
-      >
-        See the ten tracks
-      </Link>
+      {showTracksLink && (
+        <Link
+          href="/tracks"
+          className="bg-rosehack-yellow text-rosehack-darkgreen relative z-10 mt-4 rounded-full px-11 py-4 font-semibold uppercase transition duration-200 hover:brightness-95"
+        >
+          See the ten tracks
+        </Link>
+      )}
 
       <Grass />
     </section>
