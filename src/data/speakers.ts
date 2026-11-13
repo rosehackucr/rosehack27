@@ -4,7 +4,7 @@ export type Speaker = {
   photo: string;
 };
 
-// Add confirmed speakers here when the lineup is announced.
+
 export const speakers: Speaker[] = [
   {
     name: "Anuja Dawane",
