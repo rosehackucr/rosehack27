@@ -4,5 +4,15 @@ export type Speaker = {
   photo: string;
 };
 
-// Add confirmed speakers here when the lineup is announced.
-export const speakers: Speaker[] = [];
+export const speakers: Speaker[] = [
+  {
+    name: "Anuja Dawane",
+    role: "Senior Machine Learning Engineer @ Uber AV Labs",
+    photo: "/speakers/AnujaDawane.webp",
+  },
+  {
+    name: "Purna Mallepaddi",
+    role: "Machine Learning Engineer @ TikTok",
+    photo: "/speakers/PurnaMallepaddi.webp",
+  },
+];
