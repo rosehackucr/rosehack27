@@ -12,9 +12,6 @@ const Speakers = () => {
     <main className="relative flex min-h-[calc(100svh-4.5rem)] flex-col items-center overflow-hidden bg-linear-to-b from-[#f1f1ee] to-[#e8eae5] px-6 pt-20 pb-36 text-center md:pb-44">
       <Flowers flowers={cardPageFlowers} className="z-10 h-auto" />
 
-      <span className="bg-rosehack-yellow relative z-20 rounded-full px-16 py-3 text-xs font-bold uppercase">
-        Coming Soon
-      </span>
 
       <Reveal>
         <h1 className="font-cormorant text-rosehack-purple mt-6 text-6xl md:text-7xl">
