@@ -4,7 +4,6 @@ export type Speaker = {
   photo: string;
 };
 
-
 export const speakers: Speaker[] = [
   {
     name: "Anuja Dawane",

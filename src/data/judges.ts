@@ -4,7 +4,6 @@ export type Judge = {
   photo: string;
 };
 
-
 export const judges: Judge[] = [
   {
     name: "Himanshu Kriplani",
