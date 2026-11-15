@@ -25,6 +25,10 @@ jobs:
     name: images
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - uses: actions/checkout@v4
       - uses: acm-ucr/images@v2

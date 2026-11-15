@@ -12,10 +12,6 @@ const Speakers = () => {
     <main className="relative flex min-h-[calc(100svh-4.5rem)] flex-col items-center overflow-hidden bg-linear-to-b from-[#f1f1ee] to-[#e8eae5] px-6 pt-20 pb-36 text-center md:pb-44">
       <Flowers flowers={cardPageFlowers} className="z-10 h-auto" />
 
-      <span className="bg-rosehack-yellow relative z-20 rounded-full px-16 py-3 text-xs font-bold uppercase">
-        Coming Soon
-      </span>
-
       <Reveal>
         <h1 className="font-cormorant text-rosehack-purple mt-6 text-6xl md:text-7xl">
           Speakers
@@ -30,7 +26,15 @@ const Speakers = () => {
         </p>
       </Reveal>
 
-      <div className="mt-10 grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div
+        className={`mt-10 grid w-full gap-6 ${
+          speakers.length === 1
+            ? "max-w-sm grid-cols-1"
+            : speakers.length === 2
+              ? "max-w-2xl grid-cols-1 sm:grid-cols-2"
+              : "max-w-5xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        }`}
+      >
         {speakers.length > 0
           ? speakers.map((speaker, i) => (
               <Reveal key={speaker.name} index={i}>
