@@ -19,7 +19,7 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="bg-rosehack-darkgreen/85 text-rosehack-cream relative pb-36 md:pb-52">
+    <footer className="bg-rosehack-darkgreen/85 text-rosehack-cream relative pb-[clamp(9rem,16.6667vw,20rem)] md:pb-[clamp(15rem,16.6667vw,20rem)]">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-6 py-12 text-center md:flex-row md:justify-between md:px-12 md:py-16 md:text-left">
         <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
           <Image

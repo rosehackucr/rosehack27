@@ -63,7 +63,7 @@ const Meadow = () => {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 bottom-0"
+      className="pointer-events-none absolute inset-x-0 bottom-0 overflow-x-clip"
     >
       {/* Back: already swaying (a transform), so only its opacity is driven
           here. First in, full by two thirds. */}
@@ -82,7 +82,7 @@ const Meadow = () => {
           width={1440}
           height={240}
           loading="lazy"
-          className="absolute bottom-0 h-40 w-full object-cover object-bottom opacity-[calc(var(--meadow,0)_*_2_-_0.6)] md:h-60"
+          className="absolute bottom-0 h-auto min-h-40 w-full object-cover object-bottom opacity-[calc(var(--meadow,0)_*_2_-_0.6)] md:min-h-60"
         />
       )}
     </div>
