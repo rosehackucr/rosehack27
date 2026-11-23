@@ -1,4 +1,3 @@
-
 export type Judge = {
   name: string;
   role: string;
