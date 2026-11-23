@@ -1,3 +1,4 @@
+
 export type Judge = {
   name: string;
   role: string;
@@ -6,24 +7,14 @@ export type Judge = {
 
 export const judges: Judge[] = [
   {
-    name: "Himanshu Kriplani",
-    role: "Member of Technical Staff @ Hark Labs",
-    photo: "/judges/HimanshuKriplani.webp",
-  },
+    name: "Sandeep Kumar Khandelwal",
+    role: "Principal Engineer @ Atlassian Inc",
+    photo: "/judges/SandeepKumarKhandelwal.webp",
+  }, // NEW
   {
-    name: "Kanishk Jain",
-    role: "Business Data Scientist @ Google",
-    photo: "/judges/KanishkJain.webp",
-  },
-  {
-    name: "Mansi Kapoor",
-    role: "Senior Engineer @ Zola Intelligence",
-    photo: "/judges/MansiKapoor.webp",
-  },
-  {
-    name: "Krish Munot",
-    role: "Product Manager Lead @ Bakkt",
-    photo: "/judges/KrishMunot.webp",
+    name: "Amedeo Alberio",
+    role: "Staff Software Engineer @ Meta",
+    photo: "/judges/AmedeoAlberio.webp",
   },
   {
     name: "Manjari Mettu",
@@ -41,14 +32,14 @@ export const judges: Judge[] = [
     photo: "/judges/AnujaDawane.webp",
   },
   {
+    name: "Kanishk Jain",
+    role: "Business Data Scientist @ Google",
+    photo: "/judges/KanishkJain.webp",
+  },
+  {
     name: "Purna Mallepaddi",
     role: "Machine Learning Engineer @ TikTok",
     photo: "/judges/PurnaMallepaddi.webp",
-  },
-  {
-    name: "Amedeo Alberio",
-    role: "Staff Software Engineer @ Meta",
-    photo: "/judges/AmedeoAlberio.webp",
   },
   {
     name: "Chandra Sekhar Singuru",
@@ -56,13 +47,33 @@ export const judges: Judge[] = [
     photo: "/judges/ChandraSekharSinguru.webp",
   },
   {
-    name: "Huong Le",
-    role: "Data Engineer",
-    photo: "/judges/HuongLe.webp",
+    name: "Krish Munot",
+    role: "Product Manager Lead @ Bakkt",
+    photo: "/judges/KrishMunot.webp",
   },
+  {
+    name: "Gaurang Goel",
+    role: "Technical Product & Eng. Lead @ David AI",
+    photo: "/judges/GaurangGoel.webp",
+  }, // NEW
   {
     name: "Shiva Sankeerth Reddy Yarradla",
     role: "Senior ML Research Engineer @ Brevian AI",
     photo: "/judges/ShivaSankeerthReddyYarradla.webp",
+  },
+  {
+    name: "Mansi Kapoor",
+    role: "Senior Engineer @ Zola Intelligence",
+    photo: "/judges/MansiKapoor.webp",
+  },
+  {
+    name: "Himanshu Kriplani",
+    role: "Member of Technical Staff @ Hark Labs",
+    photo: "/judges/HimanshuKriplani.webp",
+  },
+  {
+    name: "Huong Le",
+    role: "Data Engineer",
+    photo: "/judges/HuongLe.webp",
   },
 ];
